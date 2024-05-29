@@ -1,4 +1,6 @@
 FROM node:alpine
+EXPOSE 4200
+EXPOSE 80
 
 WORKDIR /usr/src/app
 

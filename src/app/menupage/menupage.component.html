@@ -1,3 +1,42 @@
-<p>menupage works!</p>
-
-
+<div style="background:#99998B; height:100%;">
+<div>
+  <br>
+<mat-card class="menu-section" style="float:left;">
+    <mat-card-header style="margin-bottom: 2%;">
+      <mat-card-title>Classics</mat-card-title>
+      <mat-card-subtitle>Tried and true favorites</mat-card-subtitle>
+    </mat-card-header>
+    <mat-list>
+      @for (item of getClassicItems(); track item) {
+        <app-menuitem [item]="item" (itemOrdered)="onAdded($event)"></app-menuitem>
+      }
+    </mat-list>
+</mat-card>
+</div>
+<div>
+<mat-card class="menu-section">
+  <mat-card-header style="margin-bottom: 2%;">
+    <mat-card-title>Shots</mat-card-title>
+    <mat-card-subtitle>EVERYBODY</mat-card-subtitle>
+  </mat-card-header>
+  <mat-list>
+    @for (item of shots; track item) {
+      <app-menuitem [item]="item"></app-menuitem>
+    }
+  </mat-list>
+</mat-card>
+<br>
+</div>
+<mat-card class="menu-section">
+  <mat-card-header style="margin-bottom: 2%;">
+    <mat-card-title>Specials</mat-card-title>
+    <mat-card-subtitle>Looking for something exotic? Bougie?</mat-card-subtitle>
+  </mat-card-header>
+  <mat-list>
+    @for (item of specialties; track item) {
+      <app-menuitem [item]="item"></app-menuitem>
+    }
+  </mat-list>
+</mat-card>
+</div>
+  
