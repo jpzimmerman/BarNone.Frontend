@@ -17,7 +17,6 @@ export class MenupageComponent implements OnInit {
   shots: Cocktail[] = []
   dataService: DataService
   cartService: CartService
-  //shoppingCart: ShoppingCartComponent;
 
   constructor(dataService: DataService, cartService: CartService) {
     this.dataService = dataService;
@@ -27,13 +26,12 @@ export class MenupageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.allItems = this.dataService.getMenuItems();
-
   }
-
+  
   ngAfterViewChecked(): void {
-    //this.classics = this.allItems.filter(x => x.category == "Classics");
-    //this.shots = this.allItems.filter(x => x.category == "Shots");
-    //this.specialties = this.allItems.filter(x => x.category == "Specialty");
+    this.classics = this.allItems.filter(x => x.category == "Classics");
+    this.shots = this.allItems.filter(x => x.category == "Shots");
+    this.specialties = this.allItems.filter(x => x.category == "Specialty");
   }
 
   async getMenuItems() {
@@ -46,7 +44,4 @@ export class MenupageComponent implements OnInit {
   onAdded(item: Cocktail) { 
     this.cartService.addItemToCart(item);
   }
-
-
-
 }

@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   openCartView() {
-    let dialogRef = this.dialog.open(ShoppingCartComponent, {width: '25%', height:'40%', data : {productsInCart:this.cartService.items}})
+    let dialogRef = this.dialog.open(ShoppingCartComponent, {width: '35%', height:'40%', data : {productsInCart:this.cartService.items}})
 }
 
   getShoppingCartQuantity = () : number => this.cartService.items.length

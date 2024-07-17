@@ -9,11 +9,12 @@ import { Cocktail } from 'src/app/models/cocktail.model';
   styleUrl: './menuitem.component.scss'
 })
 export class MenuitemComponent {
-  @Input() item: Cocktail = new Cocktail("aa", "bb", 0, "Classics");
+  @Input() item: Cocktail = new Cocktail(0, "aa", "bb", 0, "Classics");
   @Output() quantityChange = new EventEmitter<number>();
   @Output() itemOrdered = new EventEmitter<Cocktail>();
 
   quantity: number = 0
+
 
   public constructor(public dialog: MatDialog) {
 
@@ -23,13 +24,16 @@ export class MenuitemComponent {
     this.quantity--;
     if (this.quantity < 0) {this.quantity = 0}
   }
+  
+  increaseQty = () => this.quantity++;
 
-  increaseQty() {
-    this.quantity++;
-  }
+  resetQty = () => this.quantity = 0;
 
   emitItemForCart() {
-    this.itemOrdered.emit(this.item);
+    if (this.quantity) {
+      this.item.quantity = this.quantity;
+      this.itemOrdered.emit(this.item);
+    }
   }
 
   openAddItemDialog() {

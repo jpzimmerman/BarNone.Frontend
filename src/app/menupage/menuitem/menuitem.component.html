@@ -6,7 +6,7 @@
         <div style="padding-left:20vw;float:right">
             {{ item.price | currency:'USD':'symbol' }}
             <button mat-button (click)="decreaseQty()">-</button>
-            <mat-form-field style="width:25%">
+            <mat-form-field *ngIf="true" style="width:25%">
                 <input matInput type="number" [(ngModel)]="this.quantity" min="0">
             </mat-form-field>
             <button mat-button (click)="increaseQty()">+</button>
