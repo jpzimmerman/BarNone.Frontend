@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewChecked, AfterViewInit, Input } from '@angular/core';
 import { DataService } from '../services/data/data.service';
 import { Cocktail } from '../models/cocktail.model';
-import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 import { CartService } from '../services/cart/cart.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class MenupageComponent implements OnInit {
   constructor(dataService: DataService, cartService: CartService) {
     this.dataService = dataService;
     this.cartService = cartService;
-  
+
   }
 
   async ngOnInit(): Promise<void> {

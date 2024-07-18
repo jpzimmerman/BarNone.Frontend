@@ -10,7 +10,7 @@
 <div style="max-height:60%!important;overflow-y:auto;">
     @for(item of products; track item) {
         <div style="display:table; width:95%; height:10%; vertical-align:middle; border-style: groove;">
-            <div style="width:40%;float:left;margin-left:2%;">{{item.name}}</div>
+            <div style="width:30%;float:left;margin-left:2%;">{{item.name}}</div>
             <div style="width:10%;float:left;margin-left:5%;">{{item.quantity}}</div>
             <div style="width:25%;float:left;">Special Instructions</div>
             <div style="margin-left:20%;float:left">{{item.price}}</div>
@@ -20,7 +20,7 @@
 </div>
 <footer style="position:absolute;bottom:0;right:0">
 <!-- <mat-form-field *ngIf="true"> -->
-    <button mat-button *ngIf="true">Close</button>
+    <button mat-button *ngIf="true" (click)="onClose()">Close</button>
     <button mat-button *ngIf="true" mat-raised-button (click)="onCustomerOrder()">Order</button>
 <!-- </mat-form-field> -->
 </footer>

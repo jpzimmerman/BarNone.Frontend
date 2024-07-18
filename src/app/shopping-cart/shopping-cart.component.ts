@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, EventEmitter, Inject, Injectable } from '@angular/core';
 import { MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,7 +16,9 @@ import { GuestOrder } from '../models/guestorder.model';
 })
 export class ShoppingCartComponent {
   nameForOrder: string = ""
-  products: Cocktail[] = [new Cocktail(0, "aa", "bb", 0.00, "Classics"), new Cocktail(1, "bb", "cc", 0.00, "Classics")];
+  products: Cocktail[] = [];
+  cartClosed = new EventEmitter();
+
 
   constructor(public dataService: DataService, public cartService: CartService, public dialogRef: MatDialogRef<ShoppingCartComponent>) {
       this.products = cartService.items;
@@ -33,9 +35,10 @@ export class ShoppingCartComponent {
       tmpOrder.name = this.nameForOrder;
       tmpOrder.items = this.cartService.items;
 
-      alert("ordered something")
-      this.dataService.addGuestOrder(tmpOrder)
+      alert("ordered something");
+      this.dataService.addGuestOrder(tmpOrder);
     }
 
+    onClose = () => this.cartClosed.emit();
   }
 
