@@ -1,16 +1,17 @@
 <div style="display:inline-block">
         <h2 style="margin-left:2%;float:left">Cart</h2>
-        <mat-form-field  style="float:right;margin-left:10%;">
+        <mat-form-field  style="float:right;margin-left:5%;">
             <div>
-                <input matInput placeholder="Name for the order?" type="text">
+                <input matInput [(ngModel)]="nameForOrder"  *ngIf="true" placeholder="Name for the order?" type="text">
             </div>
         </mat-form-field>
 </div>
 <p>Number of items: {{cartService.items.length}}</p>
 <div style="max-height:60%!important;overflow-y:auto;">
     @for(item of products; track item) {
-        <div style="display:table; width:90%; height:10%; vertical-align:middle;">
-            <div style="width:40%;float:left;margin-left:5%;">{{item.name}}</div>
+        <div style="display:table; width:95%; height:20%; vertical-align:middle; border-style: groove;">
+            <div style="width:30%;float:left;margin-left:2%;">{{item.name}}</div>
+            <div style="width:10%;float:left;margin-left:5%;">{{item.quantity}}</div>
             <div style="width:25%;float:left;">Special Instructions</div>
             <div style="margin-left:20%;float:left">{{item.price}}</div>
             <i class="bi bi-trash" style="float:right;" (click)="removeItem(item)"></i>
@@ -18,8 +19,8 @@
     }
 </div>
 <footer style="position:absolute;bottom:0;right:0">
-<mat-form-field>
-    <button mat-button>Close</button>
-    <button mat-raised-button>Order</button>
-</mat-form-field>
+<!-- <mat-form-field *ngIf="true"> -->
+    <button mat-button *ngIf="true" (click)="onClose()">Close</button>
+    <button mat-button *ngIf="true" mat-raised-button (click)="onCustomerOrder()">Order</button>
+<!-- </mat-form-field> -->
 </footer>

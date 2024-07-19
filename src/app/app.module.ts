@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef}  from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -28,22 +28,21 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    MatListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    NgbModule,
     MatDialogModule,
-    HttpClientModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule,
+    NgbModule,
   ],
   providers: [
     {
       provide: MatDialogRef,
       useValue: {}
     },
-    ShoppingCartComponent,
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

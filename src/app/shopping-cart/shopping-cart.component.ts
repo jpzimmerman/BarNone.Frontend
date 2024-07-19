@@ -1,10 +1,12 @@
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, EventEmitter, Inject, Injectable } from '@angular/core';
 import { MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatInputModule } from '@angular/material/input';
 import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
+import { DataService } from '../services/data/data.service';
 import { Product } from '../models/product.model';
+import { GuestOrder } from '../models/guestorder.model';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,9 +15,12 @@ import { Product } from '../models/product.model';
   styleUrl: './shopping-cart.component.scss'
 })
 export class ShoppingCartComponent {
-  products: Cocktail[] = [new Cocktail("aa", "bb", 0.00, "Classics"), new Cocktail("bb", "cc", 0.00, "Classics")];
+  nameForOrder: string = ""
+  products: Cocktail[] = [];
+  cartClosed = new EventEmitter();
 
-  constructor(public cartService: CartService, public dialogRef: MatDialogRef<ShoppingCartComponent>) {
+
+  constructor(public dataService: DataService, public cartService: CartService, public dialogRef: MatDialogRef<ShoppingCartComponent>) {
       this.products = cartService.items;
 
     }
@@ -25,5 +30,16 @@ export class ShoppingCartComponent {
       this.products.splice(key, 1)
     }
 
+    onCustomerOrder() {
+      var tmpOrder = new GuestOrder();
+      tmpOrder.name = this.nameForOrder;
+      tmpOrder.items = this.cartService.items;
+      this.dataService.addGuestOrder(tmpOrder);
+      this.cartClosed.emit();
+      this.cartService.items = [];
+
+    }
+
+    onClose = () => this.cartClosed.emit();
   }
 

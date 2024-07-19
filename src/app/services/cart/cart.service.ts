@@ -11,7 +11,17 @@ export class CartService {
 
    }
 
-   addItemToCart = (product: Product) => this.items.push(product);
+   addItemToCart = (product: Product) => {
+    let previousItems = this.items.find(s => s.name == product.name)
+    if (previousItems !== undefined) {
+      alert(`previous item count: ${previousItems.quantity}, incoming items count: ${product.quantity}`)
+      previousItems.quantity += product.quantity;
+    }
+    else {
+      this.items.push(product);
+    }
+   }
+
 
    removeItemFromCart(item: Product) {
 
