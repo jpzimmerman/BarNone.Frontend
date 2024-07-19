@@ -10,9 +10,9 @@ export class GuestOrder {
 
     constructor() {
         this.orderId = 0
-        this.name = "Jimbo"
-        this.specialInstructions = "extra booze"
-        this.loyaltyProgramId = "12345"
+        this.name = ""
+        this.specialInstructions = ""
+        this.loyaltyProgramId = ""
         this.items = []
         this.total = 0.00
     }

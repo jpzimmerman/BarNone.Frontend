@@ -33,6 +33,7 @@ export class MenuitemComponent {
     if (this.quantity) {
       this.item.quantity = this.quantity;
       this.itemOrdered.emit(this.item);
+      this.resetQty();
     }
   }
 

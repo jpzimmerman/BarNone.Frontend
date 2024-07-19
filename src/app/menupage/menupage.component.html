@@ -34,7 +34,7 @@
   </mat-card-header>
   <mat-list>
     @for (item of specialties; track item) {
-      <app-menuitem [item]="item"></app-menuitem>
+      <app-menuitem [item]="item" (itemOrdered)="onAdded($event)"></app-menuitem>
     }
   </mat-list>
 </mat-card>

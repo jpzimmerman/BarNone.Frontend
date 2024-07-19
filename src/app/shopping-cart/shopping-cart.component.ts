@@ -34,9 +34,10 @@ export class ShoppingCartComponent {
       var tmpOrder = new GuestOrder();
       tmpOrder.name = this.nameForOrder;
       tmpOrder.items = this.cartService.items;
-
-      alert("ordered something");
       this.dataService.addGuestOrder(tmpOrder);
+      this.cartClosed.emit();
+      this.cartService.items = [];
+
     }
 
     onClose = () => this.cartClosed.emit();
