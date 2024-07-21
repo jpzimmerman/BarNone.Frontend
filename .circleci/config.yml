@@ -1,0 +1,27 @@
+version: 2.1
+orbs:
+  dotnet: circleci/windows@5
+  docker: circleci/docker@2.6.0
+  sonar: sonarsource/sonarcloud@2.0.0
+
+jobs:
+  build-and-push:
+    executor: docker/docker
+    steps:
+      - docker/check:
+          docker-username: DOCKER_USERNAME
+          docker-password: DOCKER_PASSWORD
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - docker/build:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPO
+          tag: $CIRCLE_SHA1
+          attach-at: ./
+      - docker/push:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPO
+          tag: $CIRCLE_SHA1
+workflows:
+  build:
+    jobs:
+      - build-and-push
