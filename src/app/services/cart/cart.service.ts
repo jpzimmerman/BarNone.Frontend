@@ -12,7 +12,7 @@ export class CartService {
    }
 
    addItemToCart = (product: Product) => {
-    let previousItems = this.items.find(s => s.name == product.name)
+    const previousItems = this.items.find(s => s.name == product.name)
     if (previousItems !== undefined) {
       alert(`previous item count: ${previousItems.quantity}, incoming items count: ${product.quantity}`)
       previousItems.quantity += product.quantity;
@@ -24,6 +24,7 @@ export class CartService {
 
 
    removeItemFromCart(item: Product) {
-
+    const key = this.items.indexOf(item)
+    this.items.splice(key, 1)
    }
 }

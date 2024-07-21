@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { DataService } from '../services/data/data.service';
 import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
@@ -8,12 +8,13 @@ import { CartService } from '../services/cart/cart.service';
   templateUrl: './menupage.component.html',
   styleUrls: ['./menupage.component.scss']
 })
-export class MenupageComponent implements OnInit {
-[x: string]: any;
+export class MenupageComponent implements OnInit, AfterViewChecked {
   allItems: Cocktail[] = []
+  allTags: string[] = []
   classics: Cocktail[] = []
   specialties: Cocktail[] = []
   shots: Cocktail[] = []
+  selectedTags: string[] = []
   dataService: DataService
   cartService: CartService
 
@@ -23,24 +24,26 @@ export class MenupageComponent implements OnInit {
 
   }
 
-  async ngOnInit(): Promise<void> {
-    this.allItems = this.dataService.getMenuItems();
+  async ngOnInit() {
+    this.allTags = await this.dataService.getTags();
+    this.allItems = await this.dataService.getMenuItems();
   }
   
   ngAfterViewChecked(): void {
-    this.classics = this.allItems.filter(x => x.category == "Classics");
+    this.sortMenuItems();
+  }
+
+  async sortMenuItems() {
+    this.classics = this.getClassicItems();
     this.shots = this.allItems.filter(x => x.category == "Shots");
     this.specialties = this.allItems.filter(x => x.category == "Specialty");
   }
 
-  async getMenuItems() {
-    this.classics = this.allItems.filter(x => x.category == "Classics");
-    this.shots = this.allItems.filter(x => x.category == "Shots");
-  }
-
   getClassicItems = () => this.allItems.filter(x => x.category === "Classics")
 
-  onAdded(item: Cocktail) { 
-    this.cartService.addItemToCart(item);
-  }
+  getTags = () => this.allTags;
+
+  clearTagSelections = () => this.selectedTags = [];
+
+  onAdded = (item: Cocktail) => this.cartService.addItemToCart(item);
 }

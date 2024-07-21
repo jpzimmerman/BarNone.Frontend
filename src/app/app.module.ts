@@ -16,6 +16,8 @@ import { MatListModule } from '@angular/material/list'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CookieService } from 'ngx-cookie-service'
+import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
+    MatButtonToggle,
+    MatButtonToggleGroup,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
@@ -41,8 +45,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
   providers: [
     {
       provide: MatDialogRef,
-      useValue: {}
+      useValue: {},
     },
+    CookieService,
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

@@ -1,10 +1,14 @@
 <div style="display:inline-block">
         <h2 style="margin-left:2%;float:left">Cart</h2>
-        <mat-form-field  style="float:right;margin-left:5%;">
-            <div>
-                <input matInput [(ngModel)]="nameForOrder"  *ngIf="true" placeholder="Name for the order?" type="text">
-            </div>
-        </mat-form-field>
+        <div style="float:right;margin-left:5%;">
+            <mat-form-field ngNativeValidate style="float:right;margin:5%">
+                <div>
+                    <input matInput ngNativeValidate id="name" [(ngModel)]="nameForOrder"  *ngIf="true" placeholder="Name for the order?" type="text" required>
+                </div>
+            </mat-form-field>
+            <div *ngIf="cartFormControl.invalid" class="alert"></div>
+            <div *ngIf="cartFormControl.errors?.['required']">Name is required.</div>
+        </div>
 </div>
 <p>Number of items: {{cartService.items.length}}</p>
 <div style="max-height:60%!important;overflow-y:auto;">
@@ -13,8 +17,10 @@
             <div style="width:30%;float:left;margin-left:2%;">{{item.name}}</div>
             <div style="width:10%;float:left;margin-left:5%;">{{item.quantity}}</div>
             <div style="width:25%;float:left;">Special Instructions</div>
-            <div style="margin-left:20%;float:left">{{item.price}}</div>
-            <i class="bi bi-trash" style="float:right;" (click)="removeItem(item)"></i>
+            <div style="margin-left:20%;float:left">{{item.price | currency:'USD':'symbol'}}</div>
+            <button mat-button style="float:right;" (click)="removeItem(item)" (keydown.control.enter)="removeItem(item)">
+                <i class="bi bi-trash"></i>
+            </button>
         </div>
     }
 </div>

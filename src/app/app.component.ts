@@ -1,4 +1,4 @@
-import { Component, inject, Injectable } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CartService } from './services/cart/cart.service';
@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   openCartView() {
-    let dialogRef = this.dialog.open(ShoppingCartComponent, {width: '35%', height:'40%', data : {productsInCart:this.cartService.items}})
+    const dialogRef = this.dialog.open(ShoppingCartComponent, {width: '35%', height:'40%', data : {productsInCart:this.cartService.items}})
     dialogRef.componentInstance.cartClosed.subscribe(() => {dialogRef.close()})
   }
 

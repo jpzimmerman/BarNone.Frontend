@@ -37,8 +37,6 @@ export class MenuitemComponent {
     }
   }
 
-  openAddItemDialog() {
-      let dialogRef = this.dialog.open(AdditemComponent, {width: '25%', height:'40%', data:{itemName:this.item.name}})
-  }
+  openAddItemDialog = () => this.dialog.open(AdditemComponent, {width: '25%', height:'40%', data:{itemName:this.item.name}})
 }
 
