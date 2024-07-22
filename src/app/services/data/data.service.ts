@@ -26,9 +26,8 @@ export class DataService {
 
   async getMenuItems() : Promise<Product[]> {
     const result2: Product[] = [];
-    const result = this.http.get<Product[]>("https://localhost:44375/api/menu/GetMenuItems").pipe(catchError(this.reportError))
-    
-    result.subscribe(data => {
+    this.http.get<Product[]>("https://localhost:44375/api/menu/GetMenuItems").pipe(catchError(this.reportError))
+    .subscribe(data => {
       data.forEach(x => {
         result2.push(x)
       })
@@ -43,7 +42,6 @@ export class DataService {
         data.forEach(x => {
           result2.push(x)
         })
-      return result2;
     });
     return result2;
   }
@@ -53,6 +51,6 @@ export class DataService {
 
   reportError(error: HttpErrorResponse, caught: Observable<Product[]>) {
     alert(error.message)
-    return throwError(() => new Error(error.message))
+    return throwError(() => new Error(`${error.message}, ${JSON.stringify(caught)}`))
   }
 }

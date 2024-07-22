@@ -22,7 +22,6 @@ export class CartService {
     }
    }
 
-
    removeItemFromCart(item: Product) {
     const key = this.items.indexOf(item)
     this.items.splice(key, 1)

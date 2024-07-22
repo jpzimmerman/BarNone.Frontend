@@ -42,6 +42,10 @@ export class ShoppingCartComponent implements OnInit {
       this.cartService.items = [];
     }
 
+    isCartEmpty = () => this.cartService.items.length == 0
+
+    isOrderInvalid = () => !this.nameForOrder  || this.isCartEmpty()
+
     onClose = () => this.cartClosed.emit();
   }
 

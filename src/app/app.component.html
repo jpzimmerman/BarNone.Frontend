@@ -303,7 +303,7 @@
   <span>The Drunken Bantha</span>
   <div class="spacer"></div>
   <div id="shopping-cart" style="padding-right: 1%;">
-    <i class="bi bi-cart h3" (click)="openCartView()" (keydown.control.enter)="openCartView()"></i>
+    <i class="bi bi-cart h3" (click)="openCartView()" (keydown.control.enter)="openCartView()" tabindex="0"></i>
     <i class="badge" [hidden]="!getShoppingCartQuantity()">{{getShoppingCartQuantity()}}</i>
   </div>
 </div>

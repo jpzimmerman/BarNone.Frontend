@@ -1,6 +1,6 @@
 <div styple="float:left">
     <mat-card style="color:aquamarine;margin-left: 5%;padding-left:2%;width:90%;padding-bottom:1%;">
-        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-title (click)="openAddItemDialog()">{{ item.name }}</mat-card-title>
         <div>
             <mat-card-subtitle style="float:left;width:50%;text-wrap: wrap;">{{ item.description }}</mat-card-subtitle>
         <div style="padding-left:20vw;float:right">

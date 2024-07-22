@@ -1,10 +1,17 @@
 
-<h2 style="margin-left:2%;">{{data.itemName}}</h2>
+  <h2 style="margin-left:5%;">{{data.itemName}}</h2>
+  <div style="display:inline-block;width:90%">
+  <button mat-button>-</button>
+  <mat-form-field style="width:25%">
+      <input matInput type="number" min="0" value="0">
+  </mat-form-field>
+  <button mat-button>+</button>
+  </div>
 <mat-checkbox>Top-shelf?</mat-checkbox>
 <mat-checkbox>Non-alcoholic?</mat-checkbox>
 <mat-checkbox>Lite?</mat-checkbox>
 <mat-checkbox>Double?</mat-checkbox>
-<mat-checkbox>F*** This Thing Up with Alcohol</mat-checkbox>
+<mat-checkbox>Strong</mat-checkbox>
 <mat-form-field style="margin-left: 3%;margin-right: 3%;">
     <br>
     <mat-label>Special Instructions?</mat-label>
@@ -14,7 +21,10 @@
 </mat-form-field>
   <footer style="vertical-align: bottom;">
   <div mat-dialog-actions>
-  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button 
+    (click)="onCancel()"
+    (keydown.control.enter)="onCancel()">
+    Cancel</button>
   <button mat-raised-button cdkFocusInitial>Ok</button>
   </div>
   </footer>
