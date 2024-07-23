@@ -37,6 +37,15 @@ export class MenuitemComponent {
     }
   }
 
-  openAddItemDialog = () => this.dialog.open(AdditemComponent, {width: '25%', height:'40%', data:{itemName:this.item.name}})
+  openAddItemDialog() {
+    this.dialog.open(AdditemComponent, {width: '30%', height:'45%', data:{itemName:this.item.name, itemQuantity:this.quantity}})
+      .afterClosed()
+      .subscribe(returns => {
+        this.quantity = returns.quantity;
+        this.item.quantity = returns.quantity;
+        this.item.specialInstructions = returns.specialInstructions;
+        this.emitItemForCart();
+      })
+  }
 }
 

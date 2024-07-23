@@ -16,7 +16,7 @@
         <div style="display:table; width:95%; height:20%; vertical-align:middle; border-style: groove;">
             <div style="width:30%;float:left;margin-left:2%;">{{item.name}}</div>
             <div style="width:10%;float:left;margin-left:5%;">{{item.quantity}}</div>
-            <div style="width:25%;float:left;">Special Instructions</div>
+            <div style="width:25%;float:left;">{{item.specialInstructions}}</div>
             <div style="margin-left:20%;float:left">{{item.price | currency:'USD':'symbol'}}</div>
             <button mat-button style="float:right;" (click)="removeItem(item)" (keydown.control.enter)="removeItem(item)">
                 <i class="bi bi-trash"></i>

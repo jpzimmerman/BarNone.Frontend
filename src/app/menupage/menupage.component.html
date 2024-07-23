@@ -51,5 +51,17 @@
     }
   </mat-list>
 </mat-card>
+<br>
+<mat-card class="menu-section">
+  <mat-card-header style="margin-bottom: 2%;">
+    <mat-card-title>Specialty Mocktails</mat-card-title>
+    <mat-card-subtitle>Need something refreshing without the alcohol? We've got you covered.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-list>
+    @for (item of specialties; track item) {
+      <app-menuitem [item]="item" (itemOrdered)="onAdded($event)"></app-menuitem>
+    }
+  </mat-list>
+</mat-card>
 </div>
   

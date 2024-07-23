@@ -3,7 +3,7 @@
   <div style="display:inline-block;width:90%">
   <button mat-button>-</button>
   <mat-form-field style="width:25%">
-      <input matInput type="number" min="0" value="0">
+      <input matInput type="number" [(ngModel)]="quantity" min="0">
   </mat-form-field>
   <button mat-button>+</button>
   </div>
@@ -16,6 +16,7 @@
     <br>
     <mat-label>Special Instructions?</mat-label>
     <textarea matInput
+                [(ngModel)]="specialInstructions"
                 cdkTextareaAutosize
                 placeholder="add any special instructions..."></textarea>
 </mat-form-field>
@@ -25,6 +26,6 @@
     (click)="onCancel()"
     (keydown.control.enter)="onCancel()">
     Cancel</button>
-  <button mat-raised-button cdkFocusInitial>Ok</button>
+  <button mat-raised-button cdkFocusInitial (click)="onConfirm()">Ok</button>
   </div>
   </footer>

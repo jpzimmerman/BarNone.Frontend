@@ -7,6 +7,7 @@ export class Cocktail implements Product {
     price: number;
     category: string;
     quantity: number;
+    specialInstructions: string;
 
     public constructor(id: number, name: string, description: string, price: number, category: string) {
         this.id = id;
@@ -15,5 +16,6 @@ export class Cocktail implements Product {
         this.price = price;
         this.category = category;
         this.quantity = 0;
+        this.specialInstructions = "";
     }
 }

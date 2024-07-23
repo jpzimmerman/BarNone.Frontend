@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef}  from '@angular/material/dialog';
-import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -31,15 +31,15 @@ import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule,
-    MatTableModule,
     MatButtonModule,
     MatButtonToggle,
     MatButtonToggleGroup,
     MatDialogModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    MatTableModule,
     NgbModule,
   ],
   providers: [
