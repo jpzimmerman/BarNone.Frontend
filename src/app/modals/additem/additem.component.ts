@@ -32,7 +32,7 @@ export class AdditemComponent {
 
 
 onCancel() {
-
+  this.dialogRef.close();
 }
 
 onConfirm() {

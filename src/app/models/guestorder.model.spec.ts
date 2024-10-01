@@ -1,7 +1,7 @@
-import { Guestorder } from './guestorder.model';
+import { GuestOrder } from './guestorder.model';
 
 describe('Guestorder', () => {
   it('should create an instance', () => {
-    expect(new Guestorder()).toBeTruthy();
+    expect(new GuestOrder()).toBeTruthy();
   });
 });

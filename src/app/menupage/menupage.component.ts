@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { DataService } from '../services/data/data.service';
 import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-menupage',
@@ -18,15 +19,17 @@ export class MenupageComponent implements OnInit, AfterViewChecked {
   dataService: DataService
   cartService: CartService
 
-  constructor(dataService: DataService, cartService: CartService) {
-    this.dataService = dataService;
-    this.cartService = cartService;
-
+  constructor(dataService: DataService, cartService: CartService, public cookieService: CookieService) {
+    this.dataService = dataService
+    this.cartService = cartService
+    if (cookieService.check('shopping-cart')) {
+      this.cartService.items = JSON.parse(cookieService.get('shopping-cart'))
+    }
   }
 
   async ngOnInit() {
-    this.allTags = await this.dataService.getTags();
-    this.allItems = await this.dataService.getMenuItems();
+    this.allTags = await this.dataService.getTags()
+    this.allItems = await this.dataService.getMenuItems()
   }
   
   ngAfterViewChecked(): void {

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CartService } from './services/cart/cart.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent {
   readonly dialogRef = inject(MatDialogRef<ShoppingCartComponent>)
 
   constructor(public dialog: MatDialog, public cartService: CartService) {
+
   }
 
   openCartView() {

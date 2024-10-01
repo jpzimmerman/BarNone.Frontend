@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Product } from 'src/app/models/product.model';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Product } from 'src/app/models/product.model';
 export class CartService {
 
   items : Product[] = []
-  constructor() {
+  constructor(public cookieService: CookieService) {
 
    }
 
@@ -20,10 +21,14 @@ export class CartService {
     else {
       this.items.push(product);
     }
+    this.refreshCart()
    }
 
    removeItemFromCart(item: Product) {
     const key = this.items.indexOf(item)
     this.items.splice(key, 1)
+    this.refreshCart()
    }
+
+   refreshCart = () => this.cookieService.set('shopping-cart', JSON.stringify(this.items), {expires: 0.003, sameSite: 'Strict'})
 }
