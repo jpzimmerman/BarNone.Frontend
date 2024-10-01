@@ -31,4 +31,6 @@ export class CartService {
    }
 
    refreshCart = () => this.cookieService.set('shopping-cart', JSON.stringify(this.items), {expires: 0.003, sameSite: 'Strict'})
+
+   emptyCart = () => this.cookieService.delete('shopping-cart')
 }

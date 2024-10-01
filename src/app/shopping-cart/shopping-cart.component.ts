@@ -20,7 +20,6 @@ export class ShoppingCartComponent implements OnInit {
   cartClosed = new EventEmitter();
   cartFormControl: FormControl = new FormControl()
 
-
   constructor(public dataService: DataService, public cartService: CartService, public dialogRef: MatDialogRef<ShoppingCartComponent>) {
       this.products = cartService.items;
     }
@@ -34,18 +33,19 @@ export class ShoppingCartComponent implements OnInit {
     }
 
     onCustomerOrder() {
-      const tmpOrder = new GuestOrder();
-      tmpOrder.name = this.nameForOrder;
-      tmpOrder.items = this.cartService.items;
-      this.dataService.addGuestOrder(tmpOrder);
-      this.cartClosed.emit();
-      this.cartService.items = [];
+      const tmpOrder = new GuestOrder()
+      tmpOrder.name = this.nameForOrder
+      tmpOrder.items = this.cartService.items
+      this.dataService.addGuestOrder(tmpOrder)
+      this.cartClosed.emit()
+      this.cartService.items = []
+      this.cartService.emptyCart()
     }
 
     isCartEmpty = () => this.cartService.items.length == 0
 
     isOrderInvalid = () => !this.nameForOrder  || this.isCartEmpty()
 
-    onClose = () => this.cartClosed.emit();
+    onClose = () => this.cartClosed.emit()
   }
 
