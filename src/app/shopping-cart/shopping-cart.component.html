@@ -2,14 +2,15 @@
 <div style="display:inline-block">
         <h2 style="margin-left:2%;float:left">Cart</h2>
         <div style="float:right;margin-left:5%;">
-            <mat-form-field ngNativeValidate style="float:right;margin:5%">
+            <mat-form-field style="float:right;margin:5%">
                 <div>
-                    <input matInput ngNativeValidate id="name" [(ngModel)]="nameForOrder"  *ngIf="true" placeholder="Name for the order?" type="text" required>
+                    <input matInput id="name" type="text" #name="ngModel" [(ngModel)]="nameForOrder" placeholder="Name for the order?" required>
+                  </div>
+                </mat-form-field>
+                <div *ngIf="name.invalid">
+                <p *ngIf="name.errors?.['required']">Name is required.<p>
                 </div>
-            </mat-form-field>
-            <div *ngIf="cartFormControl.invalid" class="alert">Errors</div>
-            <div *ngIf="cartFormControl.errors?.['required']">Name is required.</div>
-        </div>
+            </div>
 </div>
 <p>Number of items: {{cartService.items.length}}</p>
 <div style="max-height:60%!important;overflow-y:auto;">
@@ -27,14 +28,14 @@
 </div>
 <footer style="position:absolute;bottom:0;right:0">
     <button mat-button
-        *ngIf="true" 
+        *ngIf="true"
         (click)="onClose()"
-        (keydown.control.enter)="onCustomerOrder()"        
+        (keydown.control.enter)="onCustomerOrder()"
         >
         Close
     </button>
     <button mat-raised-button
-        *ngIf="true" 
+        *ngIf="true"
         (click)="onCustomerOrder()"
         (keydown.control.enter)="onCustomerOrder()"
         [disabled]="isOrderInvalid()">

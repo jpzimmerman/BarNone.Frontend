@@ -24,7 +24,7 @@ export class MenuitemComponent {
     this.quantity--;
     if (this.quantity < 0) {this.quantity = 0}
   }
-  
+
   increaseQty = () => this.quantity++;
 
   resetQty = () => this.quantity = 0;

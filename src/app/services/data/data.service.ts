@@ -8,19 +8,19 @@ import { Product } from 'src/app/models/product.model';
   providedIn: 'root'
 })
 
-export class DataService {  
-  requestOptions = {                                                                                                                                                                                 
+export class DataService {
+  requestOptions = {
     headers: new Headers({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
-    }), 
+    }),
   };
 
   httpHeaders: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
 });
-  
+
   constructor(private http: HttpClient) {
    }
 
@@ -46,8 +46,11 @@ export class DataService {
     return result2;
   }
 
-  addGuestOrder = (order: GuestOrder) => this.http.put("http://54.161.119.179/api/order/AddOrder", JSON.stringify(order), {headers: this.httpHeaders} )
+  addGuestOrder = (order: GuestOrder) => {
+    alert(JSON.stringify(order))
+    this.http.put("https://localhost:44375/api/order/AddOrder", JSON.stringify(order), {headers: this.httpHeaders} )
     .subscribe()
+  }
 
   reportError(error: HttpErrorResponse, caught: Observable<Product[]>) {
     alert(error.message)
