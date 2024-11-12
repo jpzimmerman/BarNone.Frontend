@@ -1,3 +1,8 @@
+.menu-background {
+  background:#99998B;
+  height:100%;
+}
+
 .menu-section {
     width: 45vw;
     background-color: lightslategray;
@@ -13,4 +18,12 @@
     border-radius: 5%;
     border-width: 1px;
     border-color:black;
+}
+
+.menu-card {
+  margin-bottom: 2%;
+}
+
+.left-align {
+  float:left;
 }

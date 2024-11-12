@@ -1,10 +1,6 @@
-<div style="background:#99998B; height:100%;">
+<div class="menu-background">
 <div style="text-align:center;">
   <h2>What are you looking for in a drink?</h2>
-  <!-- <mat-button-toggle-group multiple="true" [(ngModel)]="selectedTags" #tagSelection="matButtonToggleGroup" appearance="legacy">
-    <mat-button-toggle class="tag-selection-button" value="A Certain Color">A Certain Color</mat-button-toggle>
-    <mat-button-toggle class="tag-selection-button" value="Why Am I Drinking This for Fun?!">Why Am I Drinking This for Fun?!</mat-button-toggle>
-  </mat-button-toggle-group> -->
   <mat-button-toggle-group multiple="true" [(ngModel)]="selectedTags" #tagSelection="matButtonToggleGroup" appearance="legacy">
     @for (tag of getTags(); track tag) {
       <mat-button-toggle class="tag-selection-button" value=tag>{{tag}}</mat-button-toggle>
@@ -14,8 +10,8 @@
 </div>
 <div>
   <br>
-<mat-card class="menu-section" style="float:left;">
-    <mat-card-header style="margin-bottom: 2%;">
+<mat-card class="menu-section left-align">
+    <mat-card-header class="menu-card">
       <mat-card-title>Classics</mat-card-title>
       <mat-card-subtitle>Tried and true favorites</mat-card-subtitle>
     </mat-card-header>
@@ -28,7 +24,7 @@
 </div>
 <div>
 <mat-card class="menu-section">
-  <mat-card-header style="margin-bottom: 2%;">
+  <mat-card-header class="menu-card">
     <mat-card-title>Shots</mat-card-title>
     <mat-card-subtitle>EVERYBODY</mat-card-subtitle>
   </mat-card-header>
@@ -41,7 +37,7 @@
 <br>
 </div>
 <mat-card class="menu-section">
-  <mat-card-header style="margin-bottom: 2%;">
+  <mat-card-header class="menu-card">
     <mat-card-title>Specials</mat-card-title>
     <mat-card-subtitle>Looking for something exotic? Bougie?</mat-card-subtitle>
   </mat-card-header>
@@ -53,7 +49,7 @@
 </mat-card>
 <br>
 <mat-card class="menu-section">
-  <mat-card-header style="margin-bottom: 2%;">
+  <mat-card-header class="menu-card">
     <mat-card-title>Specialty Mocktails</mat-card-title>
     <mat-card-subtitle>Need something refreshing without the alcohol? We've got you covered.</mat-card-subtitle>
   </mat-card-header>
@@ -64,4 +60,4 @@
   </mat-list>
 </mat-card>
 </div>
-  
+

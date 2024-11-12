@@ -47,13 +47,13 @@ export class DataService {
   }
 
   addGuestOrder = (order: GuestOrder) => {
-    alert(JSON.stringify(order))
+    console.log(JSON.stringify(order))
     this.http.put("https://localhost:44375/api/order/AddOrder", JSON.stringify(order), {headers: this.httpHeaders} )
     .subscribe()
   }
 
   reportError(error: HttpErrorResponse, caught: Observable<Product[]>) {
-    alert(error.message)
+    console.log(error.message)
     return throwError(() => new Error(`${error.message}, ${JSON.stringify(caught)}`))
   }
 }

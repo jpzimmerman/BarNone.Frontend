@@ -4,7 +4,6 @@ import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
 import { DataService } from '../services/data/data.service';
 import { Product } from '../models/product.model';
-import { GuestOrder } from '../models/guestorder.model';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -26,9 +25,14 @@ export class ShoppingCartComponent {
     }
 
     onCustomerOrder() {
-      const tmpOrder = new GuestOrder()
-      tmpOrder.name = this.nameForOrder
-      tmpOrder.items = this.cartService.items
+      const tmpOrder = {
+        name: this.nameForOrder,
+        items: this.cartService.items,
+        orderId: 0,
+        specialInstructions: '',
+        total: 0.00,
+        loyaltyProgramId: ''
+      }
       this.dataService.addGuestOrder(tmpOrder)
       this.cartClosed.emit()
       this.cartService.items = []
