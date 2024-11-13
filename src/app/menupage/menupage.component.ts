@@ -31,7 +31,7 @@ export class MenupageComponent implements OnInit, AfterViewChecked {
     this.allTags = await this.dataService.getTags()
     this.allItems = await this.dataService.getMenuItems()
   }
-  
+
   ngAfterViewChecked(): void {
     this.sortMenuItems();
   }
