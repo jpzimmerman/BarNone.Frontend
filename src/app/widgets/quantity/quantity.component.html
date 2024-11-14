@@ -1,0 +1,5 @@
+<button mat-button class="quantity-decrease-button" (click)="decreaseQty().quantityChanged()">-</button>
+<mat-form-field *ngIf="true" style="width:25%">
+    <input matInput type="number" [(ngModel)]="this.itemQuantity" (ngModelChange)="this.quantityChanged()"  min="0">
+</mat-form-field>
+<button mat-button class="quantity-increase-button" (click)="increaseQty().quantityChanged()">+</button>

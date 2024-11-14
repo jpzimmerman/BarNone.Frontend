@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdditemComponent } from 'src/app/modals/additem/additem.component';
 import { Cocktail } from 'src/app/models/cocktail.model';
-import { clamp } from 'lodash';
 
 @Component({
   selector: 'app-menuitem',
@@ -20,11 +19,11 @@ export class MenuitemComponent {
 
   }
 
-  decreaseQty = () => this.quantity = clamp(this.quantity--, 0, this.quantity);
-
-  increaseQty = () => this.quantity++;
-
   resetQty = () => this.quantity = 0;
+
+  onQuantityChange(quantity: number) {
+    this.quantity = quantity;
+  }
 
   emitItemForCart() {
     if (this.quantity) {

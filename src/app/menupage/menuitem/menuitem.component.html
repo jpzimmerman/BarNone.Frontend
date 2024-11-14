@@ -6,11 +6,7 @@
             <mat-card-subtitle class="item-card-subtitle">{{ item.description }}</mat-card-subtitle>
         <div class="item-card-quantity-price">
             {{ item.price | currency:'USD':'symbol' }}
-            <button mat-button (click)="decreaseQty()">-</button>
-            <mat-form-field *ngIf="true" style="width:25%">
-                <input matInput type="number" [(ngModel)]="this.quantity" min="0">
-            </mat-form-field>
-            <button mat-button (click)="increaseQty()">+</button>
+            <app-quantity [itemQuantity]="this.quantity" (quantityChange)="onQuantityChange($event)"></app-quantity>
             <button mat-button (click)="emitItemForCart()">Add</button>
         </div>
         </div>

@@ -18,12 +18,14 @@ import { FormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CookieService } from 'ngx-cookie-service'
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { QuantityComponent } from './widgets/quantity/quantity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenupageComponent,
     MenuitemComponent,
+    QuantityComponent,
     ShoppingCartComponent
   ],
   imports: [
@@ -52,6 +54,6 @@ import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }
