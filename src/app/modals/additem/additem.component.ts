@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { QuantityModule } from 'src/app/widgets/quantity/quantity.module';
 
 export interface DialogData {
   itemName: string;
@@ -15,7 +16,7 @@ export interface DialogData {
 @Component({
   selector: 'app-additem',
   standalone: true,
-  imports: [MatInputModule, TextFieldModule, MatCheckboxModule, MatButtonModule, FormsModule],
+  imports: [MatInputModule, TextFieldModule, MatCheckboxModule, MatButtonModule, FormsModule, QuantityModule],
   templateUrl: './additem.component.html',
   styleUrl: './additem.component.scss'
 })
@@ -25,7 +26,7 @@ export class AdditemComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AdditemComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) 
+    @Inject(MAT_DIALOG_DATA) public data: DialogData)
     {
       this.quantity = data.itemQuantity;
     }

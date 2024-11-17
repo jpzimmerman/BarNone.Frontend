@@ -1,11 +1,12 @@
 <!DOCTYPE html>
   <h2 style="margin-left:5%;">{{data.itemName}}</h2>
   <div style="display:inline-block;width:90%">
-  <button mat-button>-</button>
+  <!-- <button mat-button>-</button>
   <mat-form-field style="width:25%">
       <input matInput type="number" [(ngModel)]="quantity" min="0">
   </mat-form-field>
-  <button mat-button>+</button>
+  <button mat-button>+</button> -->
+  <app-quantity></app-quantity>
   </div>
 <mat-checkbox>Top-shelf?</mat-checkbox>
 <mat-checkbox>Non-alcoholic?</mat-checkbox>
@@ -22,7 +23,7 @@
 </mat-form-field>
   <footer style="vertical-align: bottom;">
   <div mat-dialog-actions>
-  <button mat-raised-button 
+  <button mat-raised-button
     (click)="onCancel()"
     (keydown.control.enter)="onCancel()">
     Cancel</button>

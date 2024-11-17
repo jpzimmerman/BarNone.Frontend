@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
 import { QuantityModule } from 'src/app/widgets/quantity/quantity.module';
+import { QuantityComponent } from 'src/app/widgets/quantity/quantity.component';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatButtonModule,
+    NgModule,
     QuantityModule
-  ]
+  ],
+  exports: [QuantityComponent]
 })
-export class MenuitemModule { }
+export class AdditemModule { }

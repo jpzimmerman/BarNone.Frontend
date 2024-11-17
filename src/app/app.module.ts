@@ -18,15 +18,14 @@ import { FormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CookieService } from 'ngx-cookie-service'
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
-import { QuantityComponent } from './widgets/quantity/quantity.component';
+import { QuantityModule } from "./widgets/quantity/quantity.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     MenupageComponent,
     MenuitemComponent,
-    QuantityComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +42,8 @@ import { QuantityComponent } from './widgets/quantity/quantity.component';
     MatListModule,
     MatTableModule,
     NgbModule,
-  ],
+    QuantityModule
+],
   providers: [
     {
       provide: MatDialogRef,
@@ -52,7 +52,8 @@ import { QuantityComponent } from './widgets/quantity/quantity.component';
     CookieService,
     provideAnimationsAsync()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule {
 

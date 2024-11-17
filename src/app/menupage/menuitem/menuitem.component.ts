@@ -6,7 +6,7 @@ import { Cocktail } from 'src/app/models/cocktail.model';
 @Component({
   selector: 'app-menuitem',
   templateUrl: './menuitem.component.html',
-  styleUrl: './menuitem.component.scss'
+  styleUrl: './menuitem.component.scss',
 })
 export class MenuitemComponent {
   @Input() item: Cocktail = new Cocktail(0, "aa", "bb", 0, "Classics");
