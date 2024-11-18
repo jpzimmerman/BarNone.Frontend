@@ -294,7 +294,7 @@
 </style>
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner" style="position: sticky!important;z-index:99">
+<div class="toolbar" role="banner" style="position:sticky!important;z-index:99;max-height:30%!important">
   <div class="logo-banner">
     <a routerLink="/">
       <img
@@ -302,16 +302,20 @@
         alt="Legends Lair Logo"
         src="../assets/img/logo-icon.png"
       />
-      <span>The Drunken Bantha</span>
+      <span class="title-text">Legends' Lair</span>
     </a>
   </div>
+  <nav style="width:80%;background:radial-gradient(black,darkred);height:100%;display:flex;">
+    <ul style="display:inline-flex;padding-left: 10%;padding-top:1%">
+      <a routerLink="menu" text="Cocktail Menu"><strong>Cocktail Menu</strong></a>
+      <a routerLink="bounties" style="padding-left: 40px;"><strong>Bounty Board</strong></a>
+      <a style="padding-left:40px;"><strong>About Us</strong></a>
+    </ul>
+  </nav>
   <div class="spacer"></div>
   <div id="shopping-cart" style="padding-right: 1%;">
     <i class="bi bi-cart h3" (click)="openCartView()" (keydown.control.enter)="openCartView()" tabindex="0"></i>
     <i class="badge" [hidden]="!getShoppingCartQuantity()">{{getShoppingCartQuantity()}}</i>
   </div>
 </div>
-<nav>
-  <li><a routerLink="menu"><strong>Cocktail Menu</strong></a></li>
-</nav>
 <router-outlet></router-outlet>

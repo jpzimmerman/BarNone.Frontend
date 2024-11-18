@@ -11,10 +11,34 @@
     opacity:0.9;
 }
 
+.a:link {
+  color:white;
+}
+
+a:visited {
+  color: white;
+}
+
 .logo-banner {
   height: 100%;
-  background-color: darkgreen;
+  width:20%;
+  background: radial-gradient(darkgreen, darkred);
   :hover {
     cursor:pointer;
+  }
+
+.title-text {
+  font-family: 'Dungeon', sans-serif;
+  font-size:44px;
+  text-align: center;
+  vertical-align:middle;
+}
+
+nav {
+  vertical-align: middle;
+}
+
+.topbar-item {
+    padding-left: 40px;
   }
 }
