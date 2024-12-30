@@ -1,22 +1,23 @@
 .menu-background {
-  background:#99998B;
-  height:100%;
+  background: #99998b;
+  height: 100%;
 }
 
 .menu-section {
-    width: 45vw;
-    background-color: lightslategray;
-    margin: 0% 2% 0% 5%;
-    border:2px;
-    padding-bottom:1%;
-    border-style: dashed;
+  width: 45vw;
+  background-color: lightslategray;
+  margin: 0% 2% 0% 5%;
+  border: 2px;
+  padding-bottom: 1%;
+  box-shadow: 8px 8px 8px;
+  border-radius: 20px;
 }
 
 .tag-selection-button {
-    border-style:dotted;
-    border-radius: 5%;
-    border-width: 1px;
-    border-color:black;
+  border-style: dotted;
+  border-radius: 5%;
+  border-width: 1px;
+  border-color: black;
 }
 
 .menu-card {
@@ -24,5 +25,5 @@
 }
 
 .left-align {
-  float:left;
+  float: left;
 }

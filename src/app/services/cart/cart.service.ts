@@ -3,34 +3,33 @@ import { CookieService } from 'ngx-cookie-service';
 import { Product } from 'src/app/models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
+  items: Product[] = [];
+  constructor(public cookieService: CookieService) {}
 
-  items : Product[] = []
-  constructor(public cookieService: CookieService) {
-
-   }
-
-   addItemToCart = (product: Product) => {
-    const previousItems = this.items.find(s => s.name == product.name)
+  addItemToCart = (product: Product) => {
+    const previousItems = this.items.find((s) => s.name == product.name);
     if (previousItems !== undefined) {
-      alert(`previous item count: ${previousItems.quantity}, incoming items count: ${product.quantity}`)
       previousItems.quantity += product.quantity;
+    } else {
+      this.items = [...this.items, product];
     }
-    else {
-      this.items.push(product);
-    }
-    this.refreshCart()
-   }
+    this.refreshCart();
+  };
 
-   removeItemFromCart(item: Product) {
-    const key = this.items.indexOf(item)
-    this.items.splice(key, 1)
-    this.refreshCart()
-   }
+  removeItemFromCart(item: Product) {
+    const key = this.items.indexOf(item);
+    this.items.splice(key, 1);
+    this.refreshCart();
+  }
 
-   refreshCart = () => this.cookieService.set('shopping-cart', JSON.stringify(this.items), {expires: 0.003, sameSite: 'Strict'})
+  refreshCart = () =>
+    this.cookieService.set('shopping-cart', JSON.stringify(this.items), {
+      expires: 0.003,
+      sameSite: 'Strict',
+    });
 
-   emptyCart = () => this.cookieService.delete('shopping-cart')
+  emptyCart = () => this.cookieService.delete('shopping-cart');
 }
