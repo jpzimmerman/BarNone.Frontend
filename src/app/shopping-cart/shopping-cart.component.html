@@ -1,43 +1,77 @@
 <!DOCTYPE html>
-<div style="display:inline-block">
-        <h2 style="margin-left:2%;float:left">Cart</h2>
-        <div style="float:right;margin-left:5%;">
-            <mat-form-field style="float:right;margin:5%">
-                <div>
-                    <input matInput id="name" type="text" #name="ngModel" [(ngModel)]="nameForOrder" placeholder="Name for the order?" required>
-                  </div>
-                </mat-form-field>
-                <div *ngIf="name.invalid">
-                <p *ngIf="name.errors?.['required']">Name is required.<p>
-                </div>
-            </div>
-</div>
-<p>Number of items: {{cartService.items.length}}</p>
-<div style="max-height:60%!important;overflow-y:auto;">
-    @for(item of products; track item) {
-        <div style="display:table; width:95%; height:20%; vertical-align:middle; border-style: groove;">
-            <div style="width:30%;float:left;margin-left:2%;">{{item.name}}</div>
-            <div style="width:10%;float:left;margin-left:5%;">{{item.quantity}}</div>
-            <div style="width:25%;float:left;">{{item.specialInstructions}}</div>
-            <div style="margin-left:20%;float:left">{{item.price | currency:'USD':'symbol'}}</div>
-            <button mat-button style="float:right;" (click)="removeItem(item)" (keydown.control.enter)="removeItem(item)">
-                <i class="bi bi-trash"></i>
-            </button>
-        </div>
-    }
-</div>
-<footer style="position:absolute;bottom:0;right:0">
-    <button mat-button
-        *ngIf="true"
-        (click)="onClose()"
-        (keydown.control.enter)="onCustomerOrder()"
-        >
-        Close
+<section style="display: inline-block">
+  <h2 style="margin-left: 2%; float: left">Cart</h2>
+  <section style="float: right; margin-left: 5%">
+    <mat-form-field style="float: right; margin: 5%">
+      <section>
+        <input
+          matInput
+          id="name"
+          type="text"
+          #name="ngModel"
+          [(ngModel)]="nameForOrder"
+          placeholder="Name for the order?"
+          required
+        />
+      </section>
+    </mat-form-field>
+    <section *ngIf="name.invalid">
+      <p *ngIf="name.errors?.['required']">Name is required.</p>
+      <p></p>
+    </section>
+  </section>
+</section>
+<p>Number of items: {{ cartService.items.length }}</p>
+<section style="max-height: 60% !important; overflow-y: auto">
+  @for(item of products; track item) {
+  <section
+    style="
+      display: table;
+      width: 95%;
+      height: 20%;
+      vertical-align: middle;
+      border-style: groove;
+    "
+  >
+    <section style="width: 30%; float: left; margin-left: 2%">
+      {{ item.name }}
+    </section>
+    <section style="width: 10%; float: left; margin-left: 5%">
+      {{ item.quantity }}
+    </section>
+    <section style="width: 25%; float: left">
+      {{ item.specialInstructions }}
+    </section>
+    <section style="margin-left: 20%; float: left">
+      {{ item.price | currency : "USD" : "symbol" }}
+    </section>
+    <button
+      mat-button
+      style="float: right"
+      (click)="removeItem(item)"
+      (keydown.control.enter)="removeItem(item)"
+    >
+      <i class="bi bi-trash"></i>
     </button>
-    <button mat-raised-button
-        *ngIf="true"
-        (click)="onCustomerOrder()"
-        (keydown.control.enter)="onCustomerOrder()"
-        [disabled]="isOrderInvalid()">
-        Order</button>
+  </section>
+  }
+</section>
+<footer style="position: absolute; bottom: 0; right: 0">
+  <button
+    mat-button
+    *ngIf="true"
+    (click)="onClose()"
+    (keydown.control.enter)="onCustomerOrder()"
+  >
+    Close
+  </button>
+  <button
+    mat-raised-button
+    *ngIf="true"
+    (click)="onCustomerOrder()"
+    (keydown.control.enter)="onCustomerOrder()"
+    [disabled]="isOrderInvalid()"
+  >
+    Order
+  </button>
 </footer>

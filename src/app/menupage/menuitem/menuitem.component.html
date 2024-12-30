@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<div>
-    <mat-card class="item-card">
-        <mat-card-title (click)="openAddItemDialog()">{{ item.name }}</mat-card-title>
-        <div>
-            <mat-card-subtitle class="item-card-subtitle">{{ item.description }}</mat-card-subtitle>
-        <div class="item-card-quantity-price">
-            {{ item.price | currency:'USD':'symbol' }}
-            <app-quantity [itemQuantity]="this.quantity" (quantityChange)="onQuantityChange($event)"></app-quantity>
-            <button mat-button (click)="emitItemForCart()">Add</button>
-        </div>
-        </div>
-    </mat-card>
-</div>
-
+<section>
+  <mat-card class="item-card">
+    <mat-card-title (click)="openAddItemDialog()">{{
+      item.name
+    }}</mat-card-title>
+    <section>
+      <mat-card-subtitle class="item-card-subtitle">{{
+        item.description
+      }}</mat-card-subtitle>
+      <section class="item-card-quantity-price">
+        {{ item.price | currency : "USD" : "symbol" }}
+        <app-quantity
+          [itemQuantity]="this.quantity"
+          (quantityChange)="onQuantityChange($event)"
+        ></app-quantity>
+        <button mat-button (click)="emitItemForCart()">Add</button>
+      </section>
+    </section>
+  </mat-card>
+</section>

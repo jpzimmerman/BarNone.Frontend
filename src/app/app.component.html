@@ -1,6 +1,8 @@
 <style>
   :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
     font-size: 14px;
     color: #333;
     box-sizing: border-box;
@@ -192,7 +194,7 @@
   }
 
   .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     color: white;
     padding: 0 1rem 1rem;
     margin: 0;
@@ -236,17 +238,17 @@
     align-items: center;
     font-size: 12px;
     padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
+    border: 1px solid rgba(27, 31, 35, 0.2);
     border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
     margin-left: 4px;
     font-weight: 600;
   }
 
   .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, 0.35);
+    background-position: -0.5em;
   }
 
   .github-star-badge .material-icons {
@@ -265,7 +267,7 @@
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
+    .card-container > *:not(.circle-link),
     .terminal {
       width: 100%;
     }
@@ -294,8 +296,12 @@
 </style>
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner" style="position:sticky!important;z-index:99;max-height:30%!important">
-  <div class="logo-banner">
+<section
+  class="toolbar"
+  role="banner"
+  style="position: sticky !important; z-index: 99; max-height: 30% !important"
+>
+  <section class="logo-banner">
     <a routerLink="/">
       <img
         width="65"
@@ -304,18 +310,36 @@
       />
       <span class="title-text">Legends' Lair</span>
     </a>
-  </div>
-  <nav style="width:80%;background:radial-gradient(black,darkred);height:100%;display:flex;">
-    <ul style="display:inline-flex;padding-left: 10%;padding-top:1%">
-      <a routerLink="menu" text="Cocktail Menu"><strong>Cocktail Menu</strong></a>
-      <a routerLink="bounties" style="padding-left: 40px;"><strong>Bounty Board</strong></a>
-      <a style="padding-left:40px;"><strong>About Us</strong></a>
+  </section>
+  <nav
+    style="
+      width: 80%;
+      background: radial-gradient(black, darkred);
+      height: 100%;
+      display: flex;
+    "
+  >
+    <ul style="display: inline-flex; padding-left: 10%; padding-top: 1%">
+      <a routerLink="menu" text="Cocktail Menu"
+        ><strong>Cocktail Menu</strong></a
+      >
+      <a routerLink="bounties" style="padding-left: 40px"
+        ><strong>Bounty Board</strong></a
+      >
+      <a style="padding-left: 40px"><strong>About Us</strong></a>
     </ul>
   </nav>
-  <div class="spacer"></div>
-  <div id="shopping-cart" style="padding-right: 1%;">
-    <i class="bi bi-cart h3" (click)="openCartView()" (keydown.control.enter)="openCartView()" tabindex="0"></i>
-    <i class="badge" [hidden]="!getShoppingCartQuantity()">{{getShoppingCartQuantity()}}</i>
-  </div>
-</div>
+  <section class="spacer"></section>
+  <section id="shopping-cart" style="padding-right: 1%">
+    <i
+      class="bi bi-cart h3"
+      (click)="openCartView()"
+      (keydown.control.enter)="openCartView()"
+      tabindex="0"
+    ></i>
+    <i class="badge" [hidden]="!getShoppingCartQuantity()">{{
+      getShoppingCartQuantity()
+    }}</i>
+  </section>
+</section>
 <router-outlet></router-outlet>

@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-  <h2 style="margin-left:5%;">{{data.itemName}}</h2>
-  <div style="display:inline-block;width:90%">
+<h2 style="margin-left: 5%">{{ data.itemName }}</h2>
+<section style="display: inline-block; width: 90%">
   <!-- <button mat-button>-</button>
   <mat-form-field style="width:25%">
       <input matInput type="number" [(ngModel)]="quantity" min="0">
   </mat-form-field>
   <button mat-button>+</button> -->
   <app-quantity></app-quantity>
-  </div>
+</section>
 <mat-checkbox>Top-shelf?</mat-checkbox>
 <mat-checkbox>Non-alcoholic?</mat-checkbox>
 <mat-checkbox>Lite?</mat-checkbox>
 <mat-checkbox>Double?</mat-checkbox>
 <mat-checkbox>Strong</mat-checkbox>
-<mat-form-field style="margin-left: 3%;margin-right: 3%;">
-    <br>
-    <mat-label>Special Instructions?</mat-label>
-    <textarea matInput
-                [(ngModel)]="specialInstructions"
-                cdkTextareaAutosize
-                placeholder="add any special instructions..."></textarea>
+<mat-form-field style="margin-left: 3%; margin-right: 3%">
+  <br />
+  <mat-label>Special Instructions?</mat-label>
+  <textarea
+    matInput
+    [(ngModel)]="specialInstructions"
+    cdkTextareaAutosize
+    placeholder="add any special instructions..."
+  ></textarea>
 </mat-form-field>
-  <footer style="vertical-align: bottom;">
-  <div mat-dialog-actions>
-  <button mat-raised-button
-    (click)="onCancel()"
-    (keydown.control.enter)="onCancel()">
-    Cancel</button>
-  <button mat-raised-button cdkFocusInitial (click)="onConfirm()">Ok</button>
-  </div>
-  </footer>
+<footer style="vertical-align: bottom">
+  <section mat-dialog-actions>
+    <button
+      mat-raised-button
+      (click)="onCancel()"
+      (keydown.control.enter)="onCancel()"
+    >
+      Cancel
+    </button>
+    <button mat-raised-button cdkFocusInitial (click)="onConfirm()">Ok</button>
+  </section>
+</footer>
