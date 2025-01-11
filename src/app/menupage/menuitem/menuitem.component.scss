@@ -1,18 +1,19 @@
 .item-card {
-  color:aquamarine;
-  margin-left:5%;
-  padding-left:2%;
-  width:90%;
-  padding-bottom:1%;
+  color: aquamarine;
+  opacity: 85%;
+  margin-left: 5%;
+  padding-left: 2%;
+  width: 90%;
+  padding-bottom: 1%;
 }
 
 .item-card-subtitle {
-  float:left;
-  width:50%;
+  float: left;
+  width: 50%;
   text-wrap: wrap;
 }
 
 .item-card-quantity-price {
-  padding-left:20vw;
-  float:right;
+  padding-left: 20vw;
+  float: right;
 }

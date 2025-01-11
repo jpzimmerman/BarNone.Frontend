@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <section>
   <mat-card class="item-card">
-    <mat-card-title (click)="openAddItemDialog()">{{
-      item.name
-    }}</mat-card-title>
+    <mat-card-title (click)="openAddItemDialog()">
+      {{ item.name }}
+    </mat-card-title>
     <section>
-      <mat-card-subtitle class="item-card-subtitle">{{
-        item.description
-      }}</mat-card-subtitle>
+      <mat-card-subtitle class="item-card-subtitle">
+        {{ item.description }}
+      </mat-card-subtitle>
       <section class="item-card-quantity-price">
         {{ item.price | currency : "USD" : "symbol" }}
         <app-quantity

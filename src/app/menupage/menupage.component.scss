@@ -5,19 +5,17 @@
 
 .menu-section {
   width: 45vw;
-  background-color: lightslategray;
+  //background-color: lightslategray;
+  background-image: url("../../assets/img/border-wood-texture.png");
   margin: 0% 2% 0% 5%;
-  border: 2px;
   padding-bottom: 1%;
+  border: solid 0.25rem;
   box-shadow: 8px 8px 8px;
   border-radius: 20px;
 }
 
 .tag-selection-button {
-  border-style: dotted;
-  border-radius: 5%;
-  border-width: 1px;
-  border-color: black;
+  border: dotted 5% 1px black;
 }
 
 .menu-card {
