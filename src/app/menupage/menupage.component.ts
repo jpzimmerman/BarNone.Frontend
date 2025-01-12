@@ -60,7 +60,6 @@ export class MenupageComponent implements OnInit, AfterViewChecked {
       finishedList.push(...this.classics.filter((x) => x.tags.includes(tag)));
     });
     const finalList = new Set(finishedList);
-    alert(JSON.stringify(finishedList));
     this.classics = [...finalList];
   }
 
