@@ -6,9 +6,10 @@
       [(ngModel)]="selectedTags"
       #tagSelection="matButtonToggleGroup"
       appearance="legacy"
+      (click)="filterByTags()"
     >
       @for (tag of getTags(); track tag) {
-      <mat-button-toggle class="tag-selection-button" value="tag">{{
+      <mat-button-toggle class="tag-selection-button" value="{{ tag }}">{{
         tag
       }}</mat-button-toggle>
       }
@@ -21,11 +22,11 @@
     <br />
     <mat-card class="menu-section left-align">
       <mat-card-header class="menu-card">
-        <mat-card-title>Classics</mat-card-title>
-        <mat-card-subtitle>Tried and true favorites</mat-card-subtitle>
+        <mat-card-title style="color: whitesmoke">Classics</mat-card-title>
+        <mat-card-subtitle>Nothing wrong with these</mat-card-subtitle>
       </mat-card-header>
       <mat-list>
-        @for (item of getClassicItems(); track item) {
+        @for (item of this.classics; track item) {
         <app-menuitem
           [item]="item"
           (itemOrdered)="onAdded($event)"
@@ -37,7 +38,7 @@
   <section>
     <mat-card class="menu-section">
       <mat-card-header class="menu-card">
-        <mat-card-title>Shots</mat-card-title>
+        <mat-card-title style="color: whitesmoke">Shots</mat-card-title>
         <mat-card-subtitle>EVERYBODY</mat-card-subtitle>
       </mat-card-header>
       <mat-list>
@@ -53,10 +54,8 @@
   </section>
   <mat-card class="menu-section">
     <mat-card-header class="menu-card">
-      <mat-card-title>Specials</mat-card-title>
-      <mat-card-subtitle
-        >Looking for something exotic? Bougie?</mat-card-subtitle
-      >
+      <mat-card-title style="color: whitesmoke">Specialties</mat-card-title>
+      <mat-card-subtitle>Looking for something exotic?</mat-card-subtitle>
     </mat-card-header>
     <mat-list>
       @for (item of specialties; track item) {
