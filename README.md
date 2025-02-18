@@ -1,4 +1,7 @@
 # BarNoneFrontend
+A frontend for a cocktail menu Web application. App displays cocktail menu, and allows users to customize orders and provide special instructions.
+
+(The frontend can be changed to display any kind of menu, but it's current configuration is meant to be a menu for a d&d-themed tavern. I have the honor of being my d&d group's designated bartender.)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
