@@ -1,0 +1,23 @@
+.cart-list {
+  display: table;
+  width: 95%;
+  height: 20%;
+  margin-left: 2rem;
+  vertical-align: middle;
+  border-style: groove;
+  background-color: darkgray;
+}
+
+.cart-list-item {
+  color: whitesmoke;
+  background-color: white;
+}
+
+.name-input-errors {
+  color: red;
+}
+
+.item-count-display {
+  margin-left: 1rem;
+  color: whitesmoke;
+}

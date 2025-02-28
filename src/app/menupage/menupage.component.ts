@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-menupage',
+  standalone: false,
   templateUrl: './menupage.component.html',
   styleUrls: ['./menupage.component.scss'],
 })

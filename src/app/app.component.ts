@@ -4,23 +4,27 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CartService } from './services/cart/cart.service';
 
 @Component({
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'BarNone.Frontend';
-  readonly dialogRef = inject(MatDialogRef<ShoppingCartComponent>)
+  readonly dialogRef = inject(MatDialogRef<ShoppingCartComponent>);
 
-  constructor(public dialog: MatDialog, public cartService: CartService) {
-
-  }
+  constructor(public dialog: MatDialog, public cartService: CartService) {}
 
   openCartView() {
-    const dialogRef = this.dialog.open(ShoppingCartComponent, {width: '35%', height:'40%', data : {productsInCart:this.cartService.items}})
-    dialogRef.componentInstance.cartClosed.subscribe(() => {dialogRef.close()})
+    const dialogRef = this.dialog.open(ShoppingCartComponent, {
+      width: '35%',
+      height: '40%',
+      data: { productsInCart: this.cartService.items },
+    });
+    dialogRef.componentInstance.cartClosed.subscribe(() => {
+      dialogRef.close();
+    });
   }
 
-  getShoppingCartQuantity = () : number => this.cartService.items.length
-
+  getShoppingCartQuantity = (): number => this.cartService.items.length;
 }

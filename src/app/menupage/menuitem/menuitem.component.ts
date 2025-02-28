@@ -5,21 +5,20 @@ import { Cocktail } from 'src/app/models/cocktail.model';
 
 @Component({
   selector: 'app-menuitem',
+  standalone: false,
   templateUrl: './menuitem.component.html',
   styleUrl: './menuitem.component.scss',
 })
 export class MenuitemComponent {
-  @Input() item: Cocktail = new Cocktail(0, "aa", "bb", 0, "Classics");
+  @Input() item: Cocktail = new Cocktail(0, 'aa', 'bb', 0, 'Classics');
   @Output() quantityChange = new EventEmitter<number>();
   @Output() itemOrdered = new EventEmitter<Cocktail>();
 
-  quantity: number = 0
+  quantity: number = 0;
 
-  public constructor(public dialog: MatDialog) {
+  public constructor(public dialog: MatDialog) {}
 
-  }
-
-  resetQty = () => this.quantity = 0;
+  resetQty = () => (this.quantity = 0);
 
   onQuantityChange(quantity: number) {
     this.quantity = quantity;
@@ -34,15 +33,20 @@ export class MenuitemComponent {
   }
 
   openAddItemDialog() {
-    this.dialog.open(AdditemComponent, {width: '30%', height:'45%', data:{itemName:this.item.name, itemQuantity:this.quantity}})
-      .afterClosed()
-      .subscribe(returnValues => {
-        if (returnValues.quantity) {
-        this.quantity = returnValues.quantity;
-        this.item.quantity = returnValues.quantity;
-        this.item.specialInstructions = returnValues.specialInstructions;
-        this.emitItemForCart();
-        }
+    this.dialog
+      .open(AdditemComponent, {
+        width: '30%',
+        height: '45%',
+        data: { itemName: this.item.name, itemQuantity: this.quantity },
       })
+      .afterClosed()
+      .subscribe((returnValues) => {
+        if (returnValues.quantity) {
+          this.quantity = returnValues.quantity;
+          this.item.quantity = returnValues.quantity;
+          this.item.specialInstructions = returnValues.specialInstructions;
+          this.emitItemForCart();
+        }
+      });
   }
 }
