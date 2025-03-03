@@ -12,19 +12,16 @@
 
 .logo-banner {
   height: 100%;
-  width: 20%;
+  width: 50vw;
   background: radial-gradient(darkgreen, darkred);
   :hover {
     cursor: pointer;
   }
 
   .title-text {
-    font: 3em "Dungeon", sans-serif;
+    font: 2.5em "Dungeon", sans-serif;
     text-align: center;
-    vertical-align: middle;
-  }
-
-  nav {
+    width: 2rem;
     vertical-align: middle;
   }
 

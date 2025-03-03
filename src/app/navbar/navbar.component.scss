@@ -7,3 +7,46 @@ a:visited {
   color: white;
   text-decoration: none;
 }
+
+.hamburger-btn {
+  background-color: transparent;
+  border: 10;
+  color: white;
+  display: none;
+  font-size: 1.75rem;
+}
+
+.hamburger-btn:focus {
+  outline: none;
+}
+
+nav {
+  vertical-align: middle;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80vw;
+  background: radial-gradient(black, darkred);
+  height: 3.8rem;
+  display: flex;
+}
+
+#nav-ul.show {
+  display: flex;
+  visibility: visible;
+  margin-top: 2rem;
+  margin-left: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  #nav-ul {
+    display: flex;
+    visibility: collapse;
+    flex-direction: column;
+  }
+
+  .hamburger-btn {
+    display: block;
+    padding-right: 1rem;
+  }
+}
