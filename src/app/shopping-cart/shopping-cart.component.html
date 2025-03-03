@@ -28,7 +28,7 @@
 <p class="item-count-display">
   Number of items: {{ cartService.items.length }}
 </p>
-<section style="max-height: 60% !important; overflow-y: auto">
+<section style="max-height: 30% !important; overflow-y: auto">
   @for(item of products; track item) {
   <section class="cart-list">
     <section class="cart-list-item">
@@ -55,6 +55,11 @@
     </section>
   </section>
   }
+</section>
+<section class="total-section">
+  <p>Subtotal: {{ getSubtotal() | currency : "USD" : "symbol" }}</p>
+  <p>Tax: {{ getTax() | currency : "USD" : "symbol" }}</p>
+  <p>Total {{ getTotal() | currency : "USD" : "symbol" }}</p>
 </section>
 <footer style="position: absolute; bottom: 0; right: 0">
   <button

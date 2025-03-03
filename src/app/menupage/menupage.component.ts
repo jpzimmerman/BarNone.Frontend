@@ -71,7 +71,9 @@ export class MenupageComponent
 
   filterByTags() {
     const finishedList: Cocktail[] = [];
-
+    if (this.selectedTags.length === 0) {
+      this.clearTagSelections();
+    }
     // filter classics list by each of the selected tags
     // combine lists, cast into Set for unique results
     this.selectedTags.forEach((tag) => {
