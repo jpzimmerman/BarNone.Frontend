@@ -311,7 +311,8 @@
       <span class="title-text">Legends' Lair</span>
     </a>
   </section>
-  <nav
+  <app-navbar></app-navbar>
+  <!-- <nav
     style="
       width: 80%;
       background: radial-gradient(black, darkred);
@@ -334,9 +335,12 @@
       >
       <a style="padding-left: 40px"><strong>About Us</strong></a>
     </ul>
-  </nav>
+  </nav> -->
   <section class="spacer"></section>
-  <section id="shopping-cart" style="padding-right: 1%">
+  <section
+    id="shopping-cart"
+    style="padding-right: 1%; background-color: black"
+  >
     <i
       class="bi bi-cart h3"
       (click)="openCartView()"

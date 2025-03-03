@@ -1,4 +1,11 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import {
+  Input,
+  Component,
+  OnInit,
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { DataService } from '../services/data/data.service';
 import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
@@ -10,20 +17,23 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './menupage.component.html',
   styleUrls: ['./menupage.component.scss'],
 })
-export class MenupageComponent implements OnInit, AfterViewChecked {
-  allItems: Cocktail[] = [];
+export class MenupageComponent
+  implements OnInit, AfterViewChecked, AfterViewInit
+{
+  @Input() allItems: Cocktail[] = [];
   allTags: string[] = [];
   classics: Cocktail[] = [];
   specialties: Cocktail[] = [];
   shots: Cocktail[] = [];
-  selectedTags: string[] = [];
+  @Input() selectedTags: string[] = [];
   dataService: DataService;
   cartService: CartService;
 
   constructor(
     dataService: DataService,
     cartService: CartService,
-    public cookieService: CookieService
+    public cookieService: CookieService,
+    public cdRef: ChangeDetectorRef
   ) {
     this.dataService = dataService;
     this.cartService = cartService;
@@ -38,7 +48,14 @@ export class MenupageComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.sortMenuItems();
+    //this.sortMenuItems();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.sortMenuItems();
+      this.cdRef.detectChanges(); // Manually trigger change detection
+    }, 100);
   }
 
   async sortMenuItems() {
@@ -58,13 +75,16 @@ export class MenupageComponent implements OnInit, AfterViewChecked {
     // filter classics list by each of the selected tags
     // combine lists, cast into Set for unique results
     this.selectedTags.forEach((tag) => {
-      finishedList.push(...this.classics.filter((x) => x.tags.includes(tag)));
+      finishedList.push(...this.allItems.filter((x) => x.tags.includes(tag)));
     });
     const finalList = new Set(finishedList);
     this.classics = [...finalList];
   }
 
-  clearTagSelections = () => (this.selectedTags = []);
+  clearTagSelections() {
+    this.selectedTags = [];
+    this.sortMenuItems();
+  }
 
   onAdded = (item: Cocktail) => this.cartService.addItemToCart(item);
 }

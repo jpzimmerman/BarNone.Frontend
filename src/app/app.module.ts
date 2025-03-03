@@ -22,6 +22,7 @@ import {
   MatButtonToggleGroup,
 } from '@angular/material/button-toggle';
 import { QuantityModule } from './widgets/quantity/quantity.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { QuantityModule } from './widgets/quantity/quantity.module';
     MatTableModule,
     NgbModule,
     QuantityModule,
+    NavbarComponent,
   ],
   providers: [
     {
