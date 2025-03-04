@@ -12,7 +12,7 @@
 
 .logo-banner {
   height: 100%;
-  width: 50vw;
+  width: 80vw;
   background: radial-gradient(darkgreen, darkred);
   :hover {
     cursor: pointer;
@@ -21,11 +21,23 @@
   .title-text {
     font: 2.5em "Dungeon", sans-serif;
     text-align: center;
-    width: 2rem;
+    width: 16rem;
     vertical-align: middle;
   }
 
   .topbar-item {
     padding-left: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-banner {
+    min-width: 30vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title-text {
+    visibility: collapse;
   }
 }

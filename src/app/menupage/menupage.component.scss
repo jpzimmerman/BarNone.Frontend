@@ -24,3 +24,9 @@
 .left-align {
   float: left;
 }
+
+@media screen and (max-width: 896px) {
+  .menu-section {
+    width: 90vw;
+  }
+}

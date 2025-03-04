@@ -20,14 +20,23 @@ a:visited {
   outline: none;
 }
 
+a {
+  padding: 0 1.5rem 0 1.5rem;
+}
+
 nav {
   vertical-align: middle;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 80vw;
+  width: 60vw;
   background: radial-gradient(black, darkred);
   height: 3.8rem;
+  display: flex;
+}
+
+#nav-ul {
+  justify-content: space-around;
   display: flex;
 }
 
@@ -35,18 +44,32 @@ nav {
   display: flex;
   visibility: visible;
   margin-top: 2rem;
-  margin-left: 10rem;
+  margin-left: 0rem;
+  align-items: left;
+  align-content: left;
+  vertical-align: top;
 }
 
 @media screen and (max-width: 768px) {
   #nav-ul {
     display: flex;
+    background-color: black;
     visibility: collapse;
     flex-direction: column;
   }
 
   .hamburger-btn {
-    display: block;
-    padding-right: 1rem;
+    display: flex;
+    padding-left: 12rem;
+    padding-top: 1rem;
+    position: absolute;
+  }
+
+  a {
+    padding: 0.5rem;
+  }
+
+  a:hover {
+    background-color: rgba(245, 245, 245, 0.418);
   }
 }
