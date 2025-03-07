@@ -1,0 +1,23 @@
+body {
+  background: #4d4d3dda;
+  height: 100%;
+}
+
+.bounties-header {
+  background-color: rgba(100, 66, 2, 0.74);
+  margin: 5% 45% 80%;
+  position: absolute;
+  padding: 1% 5%;
+  color: white;
+  border: 2px solid black;
+  border-radius: 6%;
+}
+
+.bounty {
+  padding: 4% 10% 20% 10%;
+  background-color: brown;
+  color: azure;
+  position: fixed;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.65);
+  transform: translate(200px, 120px) rotateZ(-4deg);
+}
