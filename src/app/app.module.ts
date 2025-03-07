@@ -14,7 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuitemComponent } from './menupage/menuitem/menuitem.component';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CookieService } from 'ngx-cookie-service';
 import {
@@ -46,6 +46,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatListModule,
     MatTableModule,
     NgbModule,
+    ReactiveFormsModule,
     QuantityModule,
     NavbarComponent,
   ],

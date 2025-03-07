@@ -10,18 +10,19 @@
           matInput
           id="name"
           type="text"
-          #name="ngModel"
           [(ngModel)]="nameForOrder"
+          [formControl]="nameForOrderControl"
           placeholder="Name for the order?"
-          required
         />
       </section>
     </mat-form-field>
-    <section *ngIf="name.invalid">
-      <p *ngIf="name.errors?.['required']" class="name-input-errors">
+    <section *ngIf="nameForOrderControl.invalid && nameForOrderControl.touched">
+      <p
+        *ngIf="nameForOrderControl.errors?.['required']"
+        class="name-input-errors"
+      >
         x Name is required.
       </p>
-      <p></p>
     </section>
   </section>
 </section>
