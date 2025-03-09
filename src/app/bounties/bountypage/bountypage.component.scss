@@ -27,10 +27,32 @@ hr {
   padding: 6% 12.5% 30% 12.5%;
   position: fixed;
   // box-shadow: 0 4px 17px rgba(0, 0, 0, 0.65);
-  transform: translate(200px, 120px) rotateZ(-4deg);
+  transform: translate(10%, 15%) rotateZ(-4deg);
   background-image: url("../../../assets/img/bounty-parchment1.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.bounty2 {
+  padding: 6% 12.5% 30% 12.5%;
+  position: fixed;
+  // box-shadow: 0 4px 17px rgba(0, 0, 0, 0.65);
+  transform: translate(60%, 30%) rotateZ(2deg);
+  background-image: url("../../../assets/img/bounty-parchment1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bounty:hover {
+  transform: translate(200px, 120px) rotateZ(-4deg) scale(1.6);
+  z-index: 1;
+  transition: all 0.25s;
+}
+
+.bounty2:hover {
+  transform: translate(30%, 30%) rotateZ(2deg) scale(1.6);
+  z-index: 1;
+  transition: all 0.25s;
 }
 
 .bounty-content {
@@ -39,7 +61,19 @@ hr {
   align-items: center;
   text-align: center;
   position: absolute;
-  font: 2em "Dungeon", sans-serif;
+  font: 2.5vw "Dungeon", sans-serif;
+  font-weight: bold;
+  left: 20%;
+  right: 20%;
+}
+
+.bounty-content2 {
+  color: rgb(51, 48, 48);
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  font: 2.5vw "Dungeon", sans-serif;
   font-weight: bold;
   left: 20%;
   right: 20%;
