@@ -2,20 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { QuantityComponent } from './quantity.component';
 import { MatInputModule } from '@angular/material/input';
-
-
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [QuantityComponent],
+  declarations: [],
   imports: [
     CommonModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatButtonModule,
+    MatInputModule,
   ],
-  exports: [QuantityComponent]
-
+  exports: [MatButtonModule],
 })
-export class QuantityModule { }
+export class QuantityModule {}

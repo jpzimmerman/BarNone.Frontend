@@ -25,12 +25,7 @@ import { QuantityModule } from './widgets/quantity/quantity.module';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MenupageComponent,
-    MenuitemComponent,
-    ShoppingCartComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,10 +40,13 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatInputModule,
     MatListModule,
     MatTableModule,
+    MenuitemComponent,
+    MenupageComponent,
     NgbModule,
     ReactiveFormsModule,
     QuantityModule,
     NavbarComponent,
+    ShoppingCartComponent,
   ],
   providers: [
     {
@@ -59,6 +57,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
-  exports: [],
+  exports: [AppRoutingModule, MatInputModule, MatFormFieldModule],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   hamburger = document.getElementById('hamburger');
   navUL = document.getElementById('nav-ul');
 

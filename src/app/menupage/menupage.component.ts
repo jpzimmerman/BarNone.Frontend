@@ -2,7 +2,6 @@ import {
   Input,
   Component,
   OnInit,
-  AfterViewChecked,
   AfterViewInit,
   ChangeDetectorRef,
 } from '@angular/core';
@@ -10,16 +9,33 @@ import { DataService } from '../services/data/data.service';
 import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
 import { CookieService } from 'ngx-cookie-service';
+import {
+  MatButtonToggle,
+  MatButtonToggleGroup,
+} from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MenuitemComponent } from './menuitem/menuitem.component';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-menupage',
-  standalone: false,
+
   templateUrl: './menupage.component.html',
   styleUrls: ['./menupage.component.scss'],
+  imports: [
+    FormsModule,
+
+    MatButtonToggleGroup,
+    MatButtonModule,
+    MatButtonToggle,
+    MatCardModule,
+    MatListModule,
+    MenuitemComponent,
+  ],
 })
-export class MenupageComponent
-  implements OnInit, AfterViewChecked, AfterViewInit
-{
+export class MenupageComponent implements OnInit, AfterViewInit {
   @Input() allItems: Cocktail[] = [];
   allTags: string[] = [];
   classics: Cocktail[] = [];
@@ -45,10 +61,6 @@ export class MenupageComponent
   async ngOnInit() {
     this.allTags = await this.dataService.getTags();
     this.allItems = await this.dataService.getMenuItems();
-  }
-
-  ngAfterViewChecked(): void {
-    //this.sortMenuItems();
   }
 
   ngAfterViewInit() {

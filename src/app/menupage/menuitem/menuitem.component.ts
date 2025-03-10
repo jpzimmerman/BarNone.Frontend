@@ -1,13 +1,18 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { AdditemComponent } from 'src/app/modals/additem/additem.component';
 import { Cocktail } from 'src/app/models/cocktail.model';
+import { QuantityComponent } from 'src/app/widgets/quantity/quantity.component';
+import { QuantityModule } from 'src/app/widgets/quantity/quantity.module';
 
 @Component({
   selector: 'app-menuitem',
-  standalone: false,
+
   templateUrl: './menuitem.component.html',
   styleUrl: './menuitem.component.scss',
+  imports: [CurrencyPipe, MatCardModule, QuantityModule, QuantityComponent],
 })
 export class MenuitemComponent {
   @Input() item: Cocktail = new Cocktail(0, 'aa', 'bb', 0, 'Classics');

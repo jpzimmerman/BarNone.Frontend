@@ -6,6 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { QuantityModule } from 'src/app/widgets/quantity/quantity.module';
+import { QuantityComponent } from 'src/app/widgets/quantity/quantity.component';
 
 export interface DialogData {
   itemName: string;
@@ -23,6 +24,7 @@ export interface DialogData {
     MatButtonModule,
     FormsModule,
     QuantityModule,
+    QuantityComponent,
   ],
   templateUrl: './additem.component.html',
   styleUrl: './additem.component.scss',

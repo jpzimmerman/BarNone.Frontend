@@ -4,13 +4,25 @@ import { Cocktail } from '../models/cocktail.model';
 import { CartService } from '../services/cart/cart.service';
 import { DataService } from '../services/data/data.service';
 import { Product } from '../models/product.model';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-shopping-cart',
-  standalone: false,
+
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    CurrencyPipe,
+  ],
 })
 export class ShoppingCartComponent {
   @Input() nameForOrder: string = '';
