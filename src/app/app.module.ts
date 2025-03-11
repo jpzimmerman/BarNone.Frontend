@@ -23,6 +23,7 @@ import {
 } from '@angular/material/button-toggle';
 import { QuantityModule } from './widgets/quantity/quantity.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SpinnerComponent } from './spinner/spinner/spinner.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -47,6 +48,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     QuantityModule,
     NavbarComponent,
     ShoppingCartComponent,
+    SpinnerComponent,
   ],
   providers: [
     {
