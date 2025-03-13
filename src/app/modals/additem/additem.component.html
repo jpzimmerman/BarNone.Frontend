@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<h2 style="margin-left: 5%">{{ data.itemName }}</h2>
-<section style="display: inline-block; width: 90%">
-  <app-quantity></app-quantity>
-</section>
-<mat-checkbox>Top-shelf?</mat-checkbox>
-<mat-checkbox>Non-alcoholic?</mat-checkbox>
-<mat-checkbox>Lite?</mat-checkbox>
-<mat-checkbox>Double?</mat-checkbox>
-<mat-checkbox>Strong</mat-checkbox>
-<mat-form-field style="margin-left: 3%; margin-right: 3%">
-  <br />
-  <mat-label>Special Instructions?</mat-label>
-  <textarea
-    matInput
-    [(ngModel)]="specialInstructions"
-    cdkTextareaAutosize
-    placeholder="add any special instructions..."
-  ></textarea>
-</mat-form-field>
-<footer style="vertical-align: bottom">
-  <section mat-dialog-actions>
-    <button
-      mat-raised-button
-      (click)="onCancel()"
-      (keydown.control.enter)="onCancel()"
-    >
-      Cancel
-    </button>
-    <button mat-raised-button cdkFocusInitial (click)="onConfirm()">Ok</button>
+<section>
+  <h2 style="margin-left: 5%">{{ data.itemName }}</h2>
+  <section style="display: inline-block; width: 90%">
+    <app-quantity></app-quantity>
   </section>
-</footer>
+  <mat-checkbox>Top-shelf?</mat-checkbox>
+  <br />
+  <mat-checkbox>Non-alcoholic?</mat-checkbox>
+  <br />
+  <mat-checkbox>Lite?</mat-checkbox>
+  <br />
+  <mat-checkbox>Double?</mat-checkbox>
+  <br />
+  <mat-checkbox>Strong</mat-checkbox>
+  <br />
+  <mat-form-field style="margin-left: 3%; margin-right: 3%; width: 90vw">
+    <br />
+    <mat-label>Special Instructions?</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="specialInstructions"
+      cdkTextareaAutosize
+      placeholder="add any special instructions..."
+    ></textarea>
+  </mat-form-field>
+  <footer style="vertical-align: bottom">
+    <section mat-dialog-actions>
+      <button
+        mat-raised-button
+        (click)="onCancel()"
+        (keydown.control.enter)="onCancel()"
+      >
+        Cancel
+      </button>
+      <button mat-raised-button cdkFocusInitial (click)="onConfirm()">
+        Ok
+      </button>
+    </section>
+  </footer>
+</section>
