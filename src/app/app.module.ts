@@ -13,7 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuitemComponent } from './menupage/menuitem/menuitem.component';
 import { MatListModule } from '@angular/material/list';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -24,6 +24,7 @@ import {
 import { QuantityModule } from './widgets/quantity/quantity.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SpinnerComponent } from './spinner/spinner/spinner.component';
+import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -55,6 +56,7 @@ import { SpinnerComponent } from './spinner/spinner/spinner.component';
       provide: MatDialogRef,
       useValue: {},
     },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     CookieService,
     provideAnimationsAsync(),
   ],

@@ -15,14 +15,14 @@
   position: absolute;
   left: 48%;
   top: 10%;
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   margin: 0 auto;
-  border: 3px dotted rgb(0, 0, 0);
+  border: 7px solid rgb(0, 0, 0);
   border-radius: 50%;
   border-left-color: transparent;
   border-right-color: transparent;
-  animation: loading-spin 3.75s infinite linear;
+  animation: loading-spin 1.75s infinite linear;
 }
 
 @keyframes loading-spin {
