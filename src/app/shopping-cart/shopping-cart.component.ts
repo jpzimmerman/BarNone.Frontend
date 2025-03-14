@@ -46,7 +46,7 @@ export class ShoppingCartComponent {
 
   removeItem = (item: Product) => this.cartService.removeItemFromCart(item);
 
-  onCustomerOrder() {
+  async onCustomerOrder() {
     const tmpOrder = {
       name: this.nameForOrder,
       items: this.cartService.items,
@@ -55,7 +55,7 @@ export class ShoppingCartComponent {
       total: 0.0,
       loyaltyProgramId: '',
     };
-    this.dataService.addGuestOrder(tmpOrder);
+    await this.dataService.addGuestOrder(tmpOrder);
     this.cartClosed.emit();
     this.cartService.items = [];
     this.cartService.emptyCart();

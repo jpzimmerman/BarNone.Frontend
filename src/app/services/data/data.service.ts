@@ -8,6 +8,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { GuestOrder } from 'src/app/models/guestorder.model';
 import { Product } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -52,15 +53,13 @@ export class DataService {
     return result2;
   }
 
-  addGuestOrder = (order: GuestOrder) => {
+  addGuestOrder = (order: GuestOrder): Promise<any> => {
     console.log(JSON.stringify(order));
-    this.http
-      .put(
-        'https://localhost:44375/api/order/AddOrder',
-        JSON.stringify(order),
-        { headers: this.httpHeaders }
-      )
-      .subscribe();
+    return lastValueFrom(
+      this.http.put(`${environment.baseBackendUrl}/api/order/AddOrder`, order, {
+        headers: this.httpHeaders,
+      })
+    );
   };
 
   reportError(error: HttpErrorResponse, caught: Observable<Product[]>) {
