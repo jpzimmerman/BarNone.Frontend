@@ -76,7 +76,7 @@
       >
     </mat-card-header>
     <mat-list>
-      @for (item of specialties; track item) {
+      @for (item of mocktails; track item) {
       <app-menuitem
         [item]="item"
         (itemOrdered)="onAdded($event)"

@@ -40,6 +40,7 @@ export class MenupageComponent implements OnInit, AfterViewInit {
   allTags: string[] = [];
   classics: Cocktail[] = [];
   specialties: Cocktail[] = [];
+  mocktails: Cocktail[] = [];
   shots: Cocktail[] = [];
   @Input() selectedTags: string[] = [];
 

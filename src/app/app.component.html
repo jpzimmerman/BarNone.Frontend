@@ -326,8 +326,9 @@
   >
     <i
       class="bi bi-cart h3"
+      [tabIndex]="3"
       (click)="openCartView()"
-      (keydown.control.enter)="openCartView()"
+      (keypress)="openCartView()"
       tabindex="0"
     ></i>
     <i class="badge" [hidden]="!getShoppingCartQuantity()">{{
