@@ -3,15 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './homepage/home-page/home-page.component';
 import { MenupageComponent } from './menupage/menupage.component';
 import { BountypageComponent } from './bounties/bountypage/bountypage.component';
+import { RollfordrinkComponent } from './rollfordrink/rollfordrink.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent},
+  { path: '', component: HomePageComponent },
   { path: 'menu', component: MenupageComponent },
-  { path: 'bounties', component: BountypageComponent}
+  { path: 'bounties', component: BountypageComponent },
+  { path: 'rollfordrink', component: RollfordrinkComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

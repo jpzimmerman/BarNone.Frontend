@@ -1,0 +1,25 @@
+.roll-for-drink-base {
+  background-color: rgb(41, 34, 25);
+  height: 95vh;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.page-header {
+  margin-top: 10%;
+  color: white;
+  text-align: center;
+}
+
+.rolling-area {
+  width: 85vw;
+  height: 45vh;
+  margin-left: 15%;
+  margin-top: 10%;
+}
+
+.rolling-tray-image {
+  width: 80%;
+  height: 80%;
+  z-index: 0;
+}
