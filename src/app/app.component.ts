@@ -17,7 +17,7 @@ export class AppComponent {
 
   openCartView() {
     const dialogRef = this.dialog.open(ShoppingCartComponent, {
-      width: '35%',
+      width: window.innerWidth > 900 ? '40%' : '90%',
       height: '40%',
       data: { productsInCart: this.cartService.items },
     });
