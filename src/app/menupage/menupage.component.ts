@@ -42,17 +42,13 @@ export class MenupageComponent implements OnInit, AfterViewInit {
   specialties: Cocktail[] = [];
   shots: Cocktail[] = [];
   @Input() selectedTags: string[] = [];
-  dataService: DataService;
-  cartService: CartService;
 
   constructor(
-    dataService: DataService,
-    cartService: CartService,
+    public dataService: DataService,
+    public cartService: CartService,
     public cookieService: CookieService,
     public cdRef: ChangeDetectorRef
   ) {
-    this.dataService = dataService;
-    this.cartService = cartService;
     if (cookieService.check('shopping-cart')) {
       this.cartService.items = JSON.parse(cookieService.get('shopping-cart'));
     }
