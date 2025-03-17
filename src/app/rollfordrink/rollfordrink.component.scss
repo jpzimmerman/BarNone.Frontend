@@ -92,7 +92,8 @@ body {
   transition: transform $transitionDuration ease-out;
   cursor: pointer;
 
-  transform: rotateX($rotateX) rotateY(var(--startAngleY));
+  transform: rotateX(var(--startAngleX)) rotateY(var(--startAngleY))
+    rotateZ(var(--startAngleZ));
 
   &.rolling {
     animation: roll $animationDuration linear;
