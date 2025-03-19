@@ -9,7 +9,7 @@ $containerHeight: $containerWidth;
 $faceWidth: $containerWidth * 0.5;
 $faceHeight: $faceWidth * 0.86;
 $transitionDuration: 0.5s;
-$animationDuration: 3s;
+$animationDuration: 2s;
 $angle: 53deg;
 $ringAngle: -11deg;
 $sideAngle: 360deg/5;
@@ -54,12 +54,10 @@ $translateLowerY: $faceHeight * 0.78 + $translateRingY;
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   30% {
-    transform: rotateX(120deg) rotateY(240deg) rotateZ(0deg) translateX(40px)
-      translateY(40px);
+    transform: rotateX(120deg) rotateY(240deg) rotateZ(0deg);
   }
   50% {
-    transform: rotateX(240deg) rotateY(480deg) rotateZ(0deg) translateX(-40px)
-      translateY(-40px);
+    transform: rotateX(240deg) rotateY(480deg) rotateZ(0deg);
   }
   70% {
     transform: rotateX(360deg) rotateY(720deg) rotateZ(0deg);
@@ -80,7 +78,7 @@ body {
   width: $containerWidth;
   height: $containerHeight;
   perspective: 1500px;
-  transform: translate(50px, 100px);
+  transform: translate(0px, 0px);
 }
 
 .die {
@@ -151,11 +149,11 @@ body {
     &:before {
       content: counter(steps);
       position: absolute;
-      top: $faceHeight * 0.25;
+      top: $faceHeight * 0.2;
       left: -$faceWidth;
       color: #fff;
-      text-shadow: 1px 1px 3px #000;
-      font-size: $faceHeight * 0.5;
+      text-shadow: 2px 2px 2px #000;
+      font-size: $faceHeight * 0.4;
       text-align: center;
       line-height: $faceHeight * 0.9;
       width: $faceWidth * 2;

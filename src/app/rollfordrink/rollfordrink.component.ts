@@ -47,6 +47,7 @@ export class RollfordrinkComponent implements OnInit {
     }, 5000);
 
     var diceRollingSound = new Audio('../../assets/sound/dice-rolling.mp3');
+    diceRollingSound.volume = 0.1;
     diceRollingSound.play();
   }
 }
