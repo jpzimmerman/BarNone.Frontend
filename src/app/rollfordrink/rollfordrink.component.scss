@@ -1,3 +1,5 @@
+@use "sass:math";
+
 :root {
   --startAngleX: 0deg;
   --startAngleY: 0deg;
@@ -12,7 +14,7 @@ $transitionDuration: 0.5s;
 $animationDuration: 2s;
 $angle: 53deg;
 $ringAngle: -11deg;
-$sideAngle: 360deg/5;
+$sideAngle: math.div(360deg, 5);
 $opacity: 0.9;
 $color: rgba(30, 85, 20, $opacity);
 $rotateX: -$angle;
@@ -77,7 +79,7 @@ body {
   position: relative;
   width: $containerWidth;
   height: $containerHeight;
-  perspective: 1500px;
+  // perspective: 1500px;
   transform: translate(0px, 0px);
 }
 
@@ -125,7 +127,7 @@ body {
     &[data-face="#{$i}"] {
       $angleMultiplier: $i - 8;
       transform: rotateX(-$ringAngle)
-        rotateY(-$sideAngle * $angleMultiplier - $sideAngle/2);
+        rotateY(-$sideAngle * $angleMultiplier - math.div($sideAngle, 2));
     }
   }
 
@@ -173,7 +175,9 @@ body {
     @for $i from 16 through 20 {
       &:nth-child(#{$i}) {
         $angleMultiplier: $i - 18;
-        transform: rotateY($sideAngle * $angleMultiplier + $sideAngle/2)
+        transform: rotateY(
+            $sideAngle * $angleMultiplier + math.div($sideAngle, 2)
+          )
           translateZ($translateLowerZ)
           translateY($translateLowerY)
           rotateZ(180deg)
@@ -195,7 +199,9 @@ body {
     @for $i from 11 through 15 {
       &:nth-child(#{$i}) {
         $angleMultiplier: $i - 8;
-        transform: rotateY($sideAngle * $angleMultiplier + $sideAngle/2)
+        transform: rotateY(
+            $sideAngle * $angleMultiplier + math.div($sideAngle, 2)
+          )
           translateZ($translateRingZ)
           translateY($translateRingY)
           rotateX($ringAngle);
