@@ -40,7 +40,9 @@ export class RollfordrinkComponent implements OnInit {
 
   onRoll() {
     var dieElement = document.getElementById('d20-die');
+    var dieElementParent = document.getElementById('d20-die-parent');
     dieElement?.classList.add('rolling');
+    dieElementParent?.classList.add('rolling-transit');
 
     setTimeout(() => {
       dieElement?.classList.remove('rolling');
