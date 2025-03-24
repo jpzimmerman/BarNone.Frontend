@@ -2,7 +2,10 @@
 <section>
   <h2 style="margin-left: 5%">{{ data.itemName }}</h2>
   <section class="additem-modal">
-    <app-quantity [itemQuantity]="quantity"></app-quantity>
+    <app-quantity
+      [itemQuantity]="quantity"
+      (quantityChange)="onQuantityChange($event)"
+    ></app-quantity>
   </section>
   <mat-checkbox>Top-shelf?</mat-checkbox>
   <br />

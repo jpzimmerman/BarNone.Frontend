@@ -42,6 +42,10 @@ export class AdditemComponent {
 
   onCancel = () => this.dialogRef.close();
 
+  onQuantityChange(newQuantity: number) {
+    this.quantity = newQuantity;
+  }
+
   onConfirm = () =>
     this.dialogRef.close({
       quantity: this.quantity,

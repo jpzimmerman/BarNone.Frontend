@@ -51,6 +51,14 @@ $translateLowerY: $faceHeight * 0.78 + $translateRingY;
   z-index: 0;
 }
 
+.pause-all-animation {
+  animation-play-state: paused !important;
+}
+
+.resume-all-animation {
+  animation-play-state: running;
+}
+
 @keyframes roll {
   10% {
     transform: translateX(0deg) translateY(0deg) rotateX(0deg) rotateY(0deg)
@@ -77,27 +85,6 @@ $translateLowerY: $faceHeight * 0.78 + $translateRingY;
   }
 }
 
-@keyframes roll-transit {
-  10% {
-    transform: translateX(0deg) translateY(0deg);
-  }
-  30% {
-    transform: translateX(-90px) translateY(90px);
-  }
-  50% {
-    transform: translateX(-120px) translateY(480deg);
-  }
-  70% {
-    transform: translateX(-180px) translateY(180px);
-  }
-  90% {
-    transform: translateX(-240px) translateY(240px);
-  }
-  100% {
-    transform: translateX(-250px) translateY(250px);
-  }
-}
-
 body {
   background: #333;
   padding: 20px;
@@ -108,7 +95,7 @@ body {
   position: relative;
   width: $containerWidth;
   height: $containerHeight;
-  // perspective: 1500px;
+  perspective: 1500px;
   transform: translate(0px, 0px);
 }
 
@@ -125,7 +112,11 @@ body {
     rotateZ(var(--startAngleZ));
 
   &.rolling {
-    animation: roll $animationDuration linear;
+    animation: roll $animationDuration linear forwards;
+  }
+
+  .anim-reset {
+    animation: none !important;
   }
 
   @for $i from 1 through 5 {

@@ -46,6 +46,7 @@ export class MenuitemComponent {
       })
       .afterClosed()
       .subscribe((returnValues) => {
+        alert(JSON.stringify(returnValues));
         if (returnValues.quantity) {
           this.quantity = returnValues.quantity;
           this.item.quantity = returnValues.quantity;
