@@ -1,7 +1,7 @@
 body {
   background: #4d4d3dda;
   height: 100%;
-  background-image: url("../../../assets/img/bounty-board-bg.jpg");
+  background-image: url("../../assets/img/bounty-board-bg.jpg");
   background-size: cover;
   overflow: hidden;
   height: 95vh;
@@ -28,7 +28,7 @@ hr {
   position: fixed;
   // box-shadow: 0 4px 17px rgba(0, 0, 0, 0.65);
   transform: translate(10%, 15%) rotateZ(-4deg);
-  background-image: url("../../../assets/img/bounty-parchment1.png");
+  background-image: url("../../assets/img/bounty-parchment1.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -38,7 +38,7 @@ hr {
   position: fixed;
   // box-shadow: 0 4px 17px rgba(0, 0, 0, 0.65);
   transform: translate(60%, 30%) rotateZ(2deg);
-  background-image: url("../../../assets/img/bounty-parchment1.png");
+  background-image: url("../../assets/img/bounty-parchment1.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
