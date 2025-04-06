@@ -5,11 +5,16 @@
     (bountyTaken)="onAdded($event)"
   ></app-bounty>
 
-  <section style="margin-left: 200px">
+  <section
+    style="
+      margin-left: 200px;
+      transform: translateX(100px) translateY(200px);
+      height: 1600px;
+    "
+  >
     <app-bounty
       [product]="bounties[1]"
       (bountyTaken)="onAdded($event)"
-      style="transform: translateX(900px); margin-top: 100px"
     ></app-bounty>
   </section>
 

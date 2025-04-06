@@ -27,9 +27,9 @@ export class BountypageComponent implements OnInit, AfterViewInit {
   ) {}
 
   async ngOnInit() {
-    this.bounties = this.dataService
-      .getCachedMenuItems()
-      .filter((x) => x.category == 'Shots');
+    this.bounties = (await this.dataService.getCachedMenuItems()).filter(
+      (x) => x.category == 'Shots'
+    );
     this.cdRef.detectChanges();
   }
 
