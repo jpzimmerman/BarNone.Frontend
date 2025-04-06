@@ -4,7 +4,7 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, shareReplay, throwError } from 'rxjs';
 import { GuestOrder } from 'src/app/models/guestorder.model';
 import { Product } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
@@ -14,6 +14,7 @@ import { lastValueFrom } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
+  productList: Product[] = [];
   requestOptions = {
     headers: new Headers({
       'Content-Type': 'application/json',
@@ -37,9 +38,12 @@ export class DataService {
         data.forEach((x) => {
           result2.push(x);
         });
+        this.productList = data;
       });
     return result2;
   }
+
+  getCachedMenuItems = () => this.productList;
 
   getTags(): string[] {
     const result2: string[] = [];

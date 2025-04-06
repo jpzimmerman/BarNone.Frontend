@@ -1,0 +1,15 @@
+<section id="bounty1" *ngIf="product" class="bounty">
+  <section class="bounty-content">
+    <p>{{ product.name }}</p>
+    <hr />
+    <p>
+      {{ product.description }}
+    </p>
+  </section>
+  <br /><br /><br />
+  <section class="bounty-actions">
+    <button mat-button class="bounty-accept-button" (click)="emitItemForCart()">
+      Take
+    </button>
+  </section>
+</section>

@@ -1,19 +1,20 @@
 <body>
-  <section class="bounties-header">
-    <p>Bounty Board</p>
-  </section>
-  <h3>You need coin, the realm needs certain irritants removed.</h3>
+  <section class="bounties-header"></section>
+  <app-bounty
+    [product]="bounties[0]"
+    (bountyTaken)="onAdded($event)"
+  ></app-bounty>
 
-  <section id="bounty1" class="bounty">
+  <section style="margin-left: 200px">
+    <app-bounty
+      [product]="bounties[1]"
+      (bountyTaken)="onAdded($event)"
+      style="transform: translateX(900px); margin-top: 100px"
+    ></app-bounty>
+  </section>
+
+  <section id="bounty2" class="bounty">
     <section class="bounty-content">
-      <p>{{ bountyHeader }}</p>
-      <hr />
-      <p>{{ bountyDescription }}</p>
-    </section>
-  </section>
-
-  <section id="bounty2" class="bounty2" style="margin-left: 200px">
-    <section class="bounty-content2">
       <p>Potion of Healing</p>
       <hr />
       <p>Vodka, tequila, strawberry syrup, a bunch of other ingredients</p>
