@@ -18,7 +18,6 @@ export class CartService {
       this.items = [...this.items, product];
     }
     this.refreshCart();
-    alert(this.subtotal);
   };
 
   removeItemFromCart(item: Product) {
