@@ -61,21 +61,7 @@ export class ShoppingCartComponent {
     this.cartService.emptyCart();
   }
 
-  getSubtotal() {
-    if (!this.cartService.items.length) {
-      return 0.0;
-    }
-
-    return this.cartService.items
-      .map((x) => x.price * x.quantity)
-      .reduce((sum, item) => {
-        const priceValue = item;
-        if (Number.isInteger(priceValue)) {
-          return sum + priceValue;
-        }
-        return sum;
-      });
-  }
+  getSubtotal = () => this.cartService.getSubtotal();
 
   getTax = () => 0.0;
 

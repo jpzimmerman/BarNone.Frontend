@@ -71,6 +71,7 @@ export class MenupageComponent implements OnInit, AfterViewInit {
     this.classics = this.getClassicItems();
     this.shots = this.allItems.filter((x) => x.category == 'Shots');
     this.specialties = this.allItems.filter((x) => x.category == 'Specialty');
+    this.mocktails = this.allItems.filter((x) => x.category == 'Mocktails');
   }
 
   getClassicItems = () =>
@@ -89,7 +90,8 @@ export class MenupageComponent implements OnInit, AfterViewInit {
       finishedList.push(...this.allItems.filter((x) => x.tags.includes(tag)));
     });
     const finalList = new Set(finishedList);
-    this.classics = [...finalList];
+    this.classics = [...finalList].filter((x) => x.category === 'Classics');
+    this.specialties = [...finalList].filter((x) => x.category === 'Specialty');
   }
 
   clearTagSelections() {

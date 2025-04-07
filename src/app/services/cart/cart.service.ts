@@ -7,6 +7,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class CartService {
   items: Product[] = [];
+  subtotal: number = 0.0;
   constructor(public cookieService: CookieService) {}
 
   addItemToCart = (product: Product) => {
@@ -17,6 +18,7 @@ export class CartService {
       this.items = [...this.items, product];
     }
     this.refreshCart();
+    alert(this.subtotal);
   };
 
   removeItemFromCart(item: Product) {
@@ -25,11 +27,31 @@ export class CartService {
     this.refreshCart();
   }
 
-  refreshCart = () =>
+  refreshCart() {
     this.cookieService.set('shopping-cart', JSON.stringify(this.items), {
       expires: 0.003,
       sameSite: 'Strict',
     });
+    this.subtotal = this.calculateSubtotal();
+  }
+
+  calculateSubtotal() {
+    if (!this.items.length) {
+      return 0.0;
+    }
+
+    return this.items
+      .map((x) => x.price * x.quantity)
+      .reduce((sum, item) => {
+        const priceValue = item;
+        if (Number.isInteger(priceValue)) {
+          return sum + priceValue;
+        }
+        return sum;
+      });
+  }
+
+  getSubtotal = () => this.subtotal;
 
   emptyCart = () => this.cookieService.delete('shopping-cart');
 }

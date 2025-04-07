@@ -5,35 +5,10 @@
     (bountyTaken)="onAdded($event)"
   ></app-bounty>
 
-  <section
-    style="
-      margin-left: 200px;
-      transform: translateX(100px) translateY(200px);
-      height: 1600px;
-    "
-  >
+  <section style="margin-left: 200px; margin-top: 60px">
     <app-bounty
       [product]="bounties[1]"
       (bountyTaken)="onAdded($event)"
     ></app-bounty>
-  </section>
-
-  <section id="bounty2" class="bounty">
-    <section class="bounty-content">
-      <p>Potion of Healing</p>
-      <hr />
-      <p>Vodka, tequila, strawberry syrup, a bunch of other ingredients</p>
-    </section>
-  </section>
-  <section
-    id="bounty3"
-    class="bounty2"
-    style="margin-left: -10%; margin-top: 300px"
-  >
-    <section class="bounty-content2">
-      <p>Potion of Mana</p>
-      <hr />
-      <p>Vodka, rum, blue curacao</p>
-    </section>
   </section>
 </body>
