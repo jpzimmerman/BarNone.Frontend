@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseBackendUrl: 'https://barnone-web-app.azurewebsites.net',
 };

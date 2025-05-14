@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { Product } from 'src/app/models/product.model';
 import { Cocktail } from 'src/app/models/cocktail.model';
-import { CartService } from 'src/app/services/cart/cart.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

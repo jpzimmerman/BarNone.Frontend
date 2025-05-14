@@ -39,7 +39,7 @@ export class RollfordrinkComponent implements OnInit {
   }
 
   onRoll() {
-    var dieElement = document.getElementById('d20-die');
+    const dieElement = document.getElementById('d20-die');
     dieElement?.classList.remove('rolling');
     dieElement?.classList.add('rolling');
 
@@ -48,7 +48,7 @@ export class RollfordrinkComponent implements OnInit {
       dieElement?.classList.remove('rolling');
     }, 5000);
 
-    var diceRollingSound = new Audio('../../assets/sound/dice-rolling.mp3');
+    const diceRollingSound = new Audio('../../assets/sound/dice-rolling.mp3');
     diceRollingSound.volume = 0.1;
     diceRollingSound.play();
   }
