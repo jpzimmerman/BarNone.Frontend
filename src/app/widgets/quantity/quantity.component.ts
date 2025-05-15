@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { clamp } from 'lodash';
+import { clamp } from 'lodash-es';
 
 @Component({
   selector: 'app-quantity',

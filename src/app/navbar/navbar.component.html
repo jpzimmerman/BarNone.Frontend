@@ -17,6 +17,9 @@
       class="bi bi-list hamburger-btn"
       id="hamburger"
       (click)="onHamburgerClick()"
+      (keydown.control.enter)="onHamburgerClick()"
+      role="button"
+      tabindex="{0}"
     ></i>
   </nav>
 </section>

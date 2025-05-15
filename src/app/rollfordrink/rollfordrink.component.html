@@ -12,7 +12,14 @@
     />
   </section>
   <section id="d20-die-parent" class="content">
-    <section id="d20-die" class="die" (click)="onRoll()">
+    <section
+      id="d20-die"
+      class="die"
+      (click)="onRoll()"
+      (keydown.control.enter)="onRoll()"
+      role="button"
+      tabindex="{0}"
+    >
       <figure class="face face-1"></figure>
       <figure class="face face-2"></figure>
       <figure class="face face-3"></figure>

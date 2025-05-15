@@ -43,6 +43,7 @@
     "@angular/localize": "^19.1.4",
     "@types/jasmine": "~5.1.5",
     "@types/lodash": "^4.17.15",
+    "@types/lodash-es": "^4.17.12",
     "@typescript-eslint/eslint-plugin": "8.23.0",
     "@typescript-eslint/parser": "8.23.0",
     "eslint": "^9.19.0",
@@ -52,7 +53,7 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "typescript": "~5.7.3"
   }
 }
