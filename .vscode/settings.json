@@ -1,0 +1,5 @@
+{
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+  "appService.defaultWebAppToDeploy": "/subscriptions/00a24a3b-4c85-4a89-8c20-363b98d86dc1/resourceGroups/sample_resource_group/providers/Microsoft.Web/sites/legendslair",
+  "appService.deploySubpath": "dist\\bar-none.frontend"
+}

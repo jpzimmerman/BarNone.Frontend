@@ -25,12 +25,14 @@ import { QuantityModule } from './widgets/quantity/quantity.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SpinnerComponent } from './spinner/spinner/spinner.component';
 import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
+import { DropdownClickOutsideDirective } from './dropdown-click-outside.directive';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DropdownClickOutsideDirective,
     FormsModule,
     HttpClientModule,
     MatButtonModule,
