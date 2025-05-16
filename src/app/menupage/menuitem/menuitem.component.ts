@@ -40,7 +40,7 @@ export class MenuitemComponent {
   openAddItemDialog() {
     this.dialog
       .open(AdditemComponent, {
-        width: '30%',
+        width: window.innerWidth > 900 ? '40%' : '75%',
         height: '45%',
         data: { itemName: this.item.name, itemQuantity: this.quantity },
       })
