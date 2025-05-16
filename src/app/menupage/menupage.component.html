@@ -7,6 +7,7 @@
       #tagSelection="matButtonToggleGroup"
       appearance="legacy"
       (click)="filterByTags()"
+      style="max-width: 90vw; max-height: 20vh"
     >
       @for (tag of getTags(); track tag) {
       <mat-button-toggle class="tag-selection-button" value="{{ tag }}">{{

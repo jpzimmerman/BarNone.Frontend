@@ -1,6 +1,8 @@
 .menu-background {
   background-color: #4d4d3dda;
   padding: 0 0;
+  max-height: 500rem;
+  background-size: cover;
 }
 
 .menu-section {
@@ -29,6 +31,10 @@
 
 .left-align {
   float: left;
+}
+
+mat-button-toggle-group {
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 896px) {
