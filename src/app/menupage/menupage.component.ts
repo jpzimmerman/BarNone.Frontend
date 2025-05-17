@@ -92,6 +92,7 @@ export class MenupageComponent implements OnInit, AfterViewInit {
     const finalList = new Set(finishedList);
     this.classics = [...finalList].filter((x) => x.category === 'Classics');
     this.specialties = [...finalList].filter((x) => x.category === 'Specialty');
+    this.mocktails = [...finalList].filter((x) => x.category === 'Mocktails');
   }
 
   clearTagSelections() {
