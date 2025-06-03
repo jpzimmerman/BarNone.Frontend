@@ -58,24 +58,31 @@ export class MenupageComponent implements OnInit, AfterViewInit {
   async ngOnInit() {
     this.allTags = await this.dataService.getTags();
     this.allItems = await this.dataService.getMenuItems();
+    setTimeout(() => {
+      this.sortMenuItems();
+      this.cdRef.detectChanges(); // Manually trigger change detection
+    }, 150);
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       this.sortMenuItems();
       this.cdRef.detectChanges(); // Manually trigger change detection
-    }, 100);
+    }, 150);
   }
 
-  async sortMenuItems() {
-    this.classics = this.getClassicItems();
+  sortMenuItems() {
+    this.classics = [...this.getClassicItems()];
     this.shots = this.allItems.filter((x) => x.category == 'Shots');
-    this.specialties = this.allItems.filter((x) => x.category == 'Specialty');
+    this.specialties = [
+      ...this.allItems.filter((x) => x.category == 'Specialty'),
+    ];
     this.mocktails = this.allItems.filter((x) => x.category == 'Mocktails');
   }
 
-  getClassicItems = () =>
-    this.allItems.filter((x) => x.category === 'Classics');
+  getClassicItems = () => [
+    ...this.allItems.filter((x) => x.category === 'Classics'),
+  ];
 
   getTags = () => this.allTags;
 
