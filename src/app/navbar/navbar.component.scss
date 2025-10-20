@@ -50,6 +50,13 @@ nav {
   vertical-align: top;
 }
 
+.nav-button {
+  :hover {
+    background: linear-gradient(black, slategray);
+    padding: 20% 0px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #nav-ul {
     display: flex;
