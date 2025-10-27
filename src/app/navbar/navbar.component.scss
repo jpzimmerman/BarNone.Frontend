@@ -29,7 +29,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 60vw;
+  padding-left: 5%;
+  width:68vw;
   background: radial-gradient(black, darkred);
   height: 3.8rem;
   display: flex;
@@ -44,20 +45,35 @@ nav {
   display: flex;
   visibility: visible;
   margin-top: 2rem;
+  margin-right: 3rem;
   margin-left: 0rem;
   align-items: left;
   align-content: left;
   vertical-align: top;
 }
 
-.nav-button {
-  :hover {
-    background: linear-gradient(black, slategray);
-    padding: 20% 0px;
+
+@media screen and (min-width: 768px) {
+  .nav-button {
+    :hover {
+      background: linear-gradient(black, slategray);
+      padding: 20% 0px;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
+nav {
+  vertical-align: middle;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 35vw;
+  background: radial-gradient(black, darkred);
+  height: 3.8rem;
+  display: flex;
+}
+
   #nav-ul {
     display: flex;
     background-color: black;
@@ -67,7 +83,7 @@ nav {
 
   .hamburger-btn {
     display: flex;
-    padding-left: 12rem;
+    padding-left: 7.5rem;
     padding-top: 1rem;
     position: absolute;
   }

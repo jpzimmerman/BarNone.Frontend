@@ -12,14 +12,15 @@
 
 .logo-banner {
   height: 100%;
-  width: 80vw;
+  width: auto;
+  padding-right: 5%;
   background: radial-gradient(darkgreen, darkred);
   :hover {
     cursor: pointer;
   }
 
   .title-text {
-    font: 2.5em "Dungeon", sans-serif;
+    font: 2.5rem 'Dungeon', sans-serif;
     text-align: center;
     width: 16rem;
     vertical-align: middle;
@@ -30,14 +31,26 @@
   }
 }
 
+@font-face {
+  font-family: 'Dungeon';
+  src: url('../assets/fonts/DUNGRG__.TTF');
+  font-weight: normal;
+  font-size: medium;
+}
+
 @media screen and (max-width: 768px) {
   .logo-banner {
     min-width: 30vw;
+    width: 80%;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .title-text {
-    visibility: collapse;
+  .logo-banner {
+    min-width: 30vw;
+    width: 90vw!important;
+    .title-text {
+      font: 1.5rem 'Dungeon', sans-serif;
+    }
   }
 }
