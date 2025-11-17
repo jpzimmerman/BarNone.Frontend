@@ -1,10 +1,6 @@
 body {
-  background: #4d4d3dda;
-  height: 100%;
-  background-image: url("../../../assets/img/dnd-tavern-bg.jpg");
-  background-size: cover;
+  background: #4d4d3dda url("../../../assets/img/dnd-tavern-bg.jpg") no-repeat center / 100vw 100vh;
   overflow: hidden;
-  height: 95vh;
   border: 5px solid rgb(122, 47, 47);
   color: whitesmoke;
 }
